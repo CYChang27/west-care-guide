@@ -35,7 +35,11 @@ def stamp():
 
 
 def txt(v):
-    return "" if v is None else str(v).strip()
+    if v is None:
+        return ""
+    value = str(v).strip()
+    # Some official JSON feeds literally return the string "null".
+    return "" if value.lower() in {"null", "none", "undefined", "nan", "n/a"} else value
 
 
 def choose(row, *keys):
@@ -88,12 +92,20 @@ def find_rows(obj, depth=0):
     raise ValueError("Unexpected feed JSON structure")
 
 
-def parse_date(value):
+def parse_date(value, end_of_range=False):
     if not value:
         return None
     s = txt(value).replace("T", " ").replace("年", "/").replace("月", "/").replace("日", " ")
     s = s.replace(".", "/")
     s = re.sub(r"\s+", " ", s).strip()
+    # Planned outages may encode a whole interval in one field:
+    # "2026/11/14 09:00~09:30".
+    interval = re.match(
+        r"^(\d{4}[/-]\d{1,2}[/-]\d{1,2})\s+(\d{1,2}:\d{2})\s*[~～]\s*(\d{1,2}:\d{2})$",
+        s,
+    )
+    if interval:
+        s = interval.group(1) + " " + interval.group(3 if end_of_range else 2)
     for fmt in ("%Y-%m-%d %H:%M:%S", "%Y-%m-%d %H:%M", "%Y/%m/%d %H:%M:%S", "%Y/%m/%d %H:%M", "%Y-%m-%d", "%Y/%m/%d"):
         try:
             return datetime.strptime(s, fmt).replace(tzinfo=TZ)
@@ -112,10 +124,10 @@ def parse_date(value):
 
 def relevant_date(row, start, end):
     # Keep recent and forthcoming items; avoid publishing obsolete open-data records.
-    cutoff = now() - timedelta(days=1)
+    cutoff = now() - timedelta(hours=3)
     max_future = now() + timedelta(days=45)
-    end_dt = parse_date(end)
     start_dt = parse_date(start)
+    end_dt = parse_date(end, end_of_range=True) or parse_date(start, end_of_range=True)
     if end_dt and end_dt < cutoff:
         return False
     if start_dt and start_dt > max_future:
@@ -154,8 +166,9 @@ def parse_water(data):
             continue
         water_area = choose(row, "停水地區", "停水範圍")
         reduced_area = choose(row, "降壓地區", "降壓範圍")
-        kind = "降壓" if reduced_area and not water_area else ("停水／降壓" if reduced_area and water_area else "停水")
-        area = water_area or reduced_area or (county + district)
+        kind = "降壓" if reduced_area and not water_area else ("停水／降壓" if not water_area or reduced_area else "停水")
+        # Never replace a missing road area with the whole district: that could imply district-wide impact.
+        area = water_area or reduced_area
         reason = choose(row, "停水原因", "降壓原因", "原因", "工程名稱")
         if not reason:
             reason = choose(row, "降壓原因")
