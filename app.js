@@ -100,6 +100,20 @@ let activeFilter = 'all';
 let visibleCount = 12;
 const pageSize = 12;
 
+function googleMapsDirectionsUrl(address) {
+  return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(address)}`;
+}
+
+function resourceAddress(r) {
+  if (!r.address) return '';
+  const url = googleMapsDirectionsUrl(r.address);
+  return `<a class="resource-address" href="${url}" target="_blank" rel="noopener noreferrer" aria-label="使用 Google 地圖導航到 ${r.title}">
+    <span class="resource-address-pin" aria-hidden="true">⌖</span>
+    <span class="resource-address-text">${r.address}</span>
+    <span class="resource-address-action">Google 導航</span>
+  </a>`;
+}
+
 function resourceActions(r) {
   const phone = r.phone ? `<a class="action-link phone" href="${r.phoneHref}">撥打 ${r.phone}</a>` : '';
   const link = r.link ? `<a class="action-link web" href="${r.link}" target="_blank" rel="noopener">${r.action || '查看官方資訊'} →</a>` : '';
@@ -113,7 +127,7 @@ function showScenario(topic) {
   resultDescription.textContent = item.description;
   resultSteps.innerHTML = item.steps.map(step => `<li>${step}</li>`).join('');
   resultResources.innerHTML = resources.filter(r => r.topics.includes(topic)).slice(0,3).map(r => `
-    <article class="mini-resource"><strong>${r.title}</strong><span>${r.description}</span>${resourceActions(r)}</article>
+    <article class="mini-resource"><strong>${r.title}</strong><span>${r.description}</span>${resourceAddress(r)}${resourceActions(r)}</article>
   `).join('');
 }
 
@@ -130,7 +144,7 @@ function renderResources() {
       <span class="tag">${r.category}</span>
       <h3>${r.title}</h3>
       <p>${r.description}</p>
-      ${r.address ? `<p class="resource-address"><span aria-hidden="true">⌖</span>${r.address}</p>` : ''}
+      ${resourceAddress(r)}
       <div class="resource-meta">${resourceActions(r)}</div>
     </article>
   `).join('');
