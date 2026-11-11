@@ -19,3 +19,11 @@
 - 台電同案件、相同停電時段的不同街道合併顯示，並提供道路名稱搜尋
 - 台水開放資料的 `null` 會視為缺漏欄位；無明確路段不推論全區受影響
 - 日期顯示為月／日與時間，長文字保留在展開區或官方來源
+
+## 東勢里垃圾車專頁
+- 入口：`dongshi-lifehub/garbage.html`，首頁的「東勢里垃圾車」卡片可直接前往。
+- **已鎖定臺中市東區／東勢里**，可用路名及門牌搜尋，並按星期、一般垃圾／資源回收篩選。
+- 清運點有一鍵 Google Maps 導航，但**表定時間不是即時 GPS**；即時位置請使用臺中垃圾清運大車隊官方網站。
+- 政府開放資料集：https://data.gov.tw/dataset/84004 。每日透過 `.github/workflows/dongshi-garbage-sync.yml` 更新 `data/garbage.json`；資料來源欄位 `official` 才表示已成功同步官方資料。
+- 若官方來源暫時無法取得，保留最近一次的清運點資料；網站以狀態訊息標示參考或官方來源。
+- 公開網站網址：`https://cychang27.github.io/west-care-guide/dongshi-lifehub/garbage.html`（依 GitHub Pages 發布狀態為準）。
