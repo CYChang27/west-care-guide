@@ -143,10 +143,13 @@ def parse_stops(rows):
                 time = time_field(row, prefix, i, "s") or time_field(row, prefix, i, "e")
                 if time:
                     prior = point[target].get(day)
-                    # Multiple stops at identical address may have different times;
-                    # retain the earlier one for the public timetable.
-                    if not prior or time < prior:
+                    # Keep every distinct official timetable time at the same
+                    # stop/day instead of silently discarding a later recycling pass.
+                    if not prior:
                         point[target][day] = time
+                    else:
+                        values = sorted(set(prior.split("、") + [time]))
+                        point[target][day] = "、".join(values)
     if local_count < 10 or len(merged) < 7:
         raise ValueError(
             f"Too few 东區/東勢里 records; source structure may have changed: "
