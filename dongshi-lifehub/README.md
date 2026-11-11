@@ -6,8 +6,10 @@
 - 張財良里長 0932-613-620；東勢里辦公處 04-2211-5088（可點擊一鍵撥號）
 - 台水停水／降壓與台電*計畫性停電*透過 GitHub Actions 每三小時檢查一次，原始資料更新頻率依主管機關而定
 - 同步資料是臺中市**東區**級別，不是保證東勢里任何地址受到影響；請以官方公告及地址為準
-- 里內公告由具權限者修改 `data/announcements.json`，預設無公告
+- 網站已移除「里內公告欄」顯示，首頁保留官方停水、計畫性停電等查詢。原資料檔 `data/announcements.json` 暫未顯示於網站。
 - GitHub Pages 預期網址：`https://cychang27.github.io/west-care-guide/dongshi-lifehub/`（需現有儲存庫啟用 Pages / main root）
 - 工作流程：儲存庫根目錄 `.github/workflows/dongshi-lifehub-sync.yml`
 - 目前自動同步尚待 GitHub Actions 首次執行與實際上游資料格式驗證；無資料不代表無事故
 - 網站不收集居民個資，外部政府連結不受本網站控制
+
+- 網站頁尾已放大「版權所有人：張家瑜」，並新增未經授權不得擅自修改本站原創部分或移除署名之使用聲明。
