@@ -1,0 +1,13 @@
+{
+  "generated_at": null,
+  "water": {
+    "status": "unavailable",
+    "last_success": null,
+    "items": []
+  },
+  "power": {
+    "status": "unavailable",
+    "last_success": null,
+    "items": []
+  }
+}

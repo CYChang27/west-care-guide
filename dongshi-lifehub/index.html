@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#135e64">
+  <meta name="author" content="張家瑜">
+  <meta name="copyright" content="© 2026 張家瑜。保留所有權利。">
+  <meta name="description" content="臺中市東區東勢里生活通：停水、停電、垃圾車、交通、停班停課、里辦服務及官方資訊一次查。">
+  <title>東勢里生活通｜臺中市東區</title>
+  <style>
+    :root {--teal:#135e64;--dark:#174044;--cream:#faf9f5;--line:#e1e9e4;--muted:#61757a;--orange:#fff0da;--mint:#e8f5f2;--shadow:0 10px 28px rgba(27,61,62,.075)}
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;color:#1c3439;background:var(--cream);font-family:system-ui,-apple-system,"Noto Sans TC","Microsoft JhengHei",sans-serif;font-size:16px;line-height:1.65}
+    a{color:inherit;text-decoration:none}button,input{font:inherit}button{cursor:pointer}
+    a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #f5aa4d;outline-offset:3px}
+    .skip{position:absolute;left:-9999px;top:0;background:#fff;padding:1rem;z-index:30}.skip:focus{left:1rem}
+    .wrap{width:min(1120px,calc(100% - 36px));margin:auto}
+    .top{background:#fff;border-bottom:1px solid var(--line)}
+    .top .wrap{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:78px}
+    .brand{display:flex;align-items:center;gap:12px;line-height:1.3}
+    .brand-icon{display:grid;place-items:center;width:47px;height:47px;border-radius:15px;background:var(--mint);font-size:25px}
+    .brand b{display:block;font-size:22px;letter-spacing:.03em;color:var(--dark)}.brand small{display:block;color:var(--muted);font-size:12px;margin-top:3px}
+    .top nav{display:flex;gap:22px;flex-wrap:wrap;font-size:14px;font-weight:700;color:var(--teal)}.top nav a:hover{text-decoration:underline}
+    .hero{background:linear-gradient(120deg,#145b61,#197c7c);color:#fff;position:relative;overflow:hidden}
+    .hero:after{content:"";position:absolute;right:-105px;top:-145px;width:440px;height:440px;border-radius:50%;border:80px solid rgba(255,255,255,.055);pointer-events:none}
+    .hero .wrap{padding:48px 0 54px;position:relative;z-index:1}
+    .eyebrow{font-size:13px;display:inline-block;border-radius:99px;background:rgba(255,255,255,.16);padding:4px 14px;font-weight:700;letter-spacing:.08em}
+    h1{font-size:clamp(32px,5.4vw,48px);line-height:1.3;letter-spacing:-.025em;margin:15px 0 10px}
+    .lead{font-size:18px;max-width:650px;margin:0 0 27px;color:#e5f7f5}
+    .search{background:#fff;box-shadow:var(--shadow);border-radius:17px;display:flex;padding:8px;align-items:center;max-width:690px;gap:8px}
+    .search label{font-size:22px;margin:0 5px 0 12px}
+    .search input{border:0;outline:0;min-height:47px;flex:1;min-width:0;color:#233e40;background:#fff}
+    .search button{background:#ecaa56;color:#282b2a;border:0;border-radius:12px;padding:11px 23px;font-weight:800;min-height:46px}
+    .hero-foot{margin-top:13px;color:#ccece7;font-size:13px}
+    .hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+    .hero-call{display:inline-flex;align-items:center;gap:9px;min-height:50px;padding:11px 18px;border-radius:13px;background:#fff;color:var(--dark);font-weight:850;box-shadow:0 5px 13px rgba(0,0,0,.10)}
+    .hero-call.secondary{background:rgba(255,255,255,.10);color:#fff;border:1px solid rgba(255,255,255,.45);box-shadow:none}
+    .hero-call:hover{filter:brightness(.96)}
+    main{padding-bottom:54px}
+    .section{padding-top:38px;scroll-margin-top:16px}
+    .section-head{display:flex;align-items:baseline;gap:12px;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap}
+    h2{font-size:25px;line-height:1.35;color:var(--dark);margin:0;letter-spacing:-.01em}
+    h3{font-size:18px;line-height:1.4;margin:0 0 7px}
+    .muted{color:var(--muted);font-size:14px;margin:0}.tiny{font-size:12px;color:var(--muted)}
+    .status-box{background:#fff;border:1px solid var(--line);box-shadow:var(--shadow);border-radius:19px;padding:22px}
+    .notice-tip{background:#fff7e9;border-left:4px solid #db923b;border-radius:8px;padding:11px 14px;color:#6c5130;font-size:13px;margin:0 0 18px}
+    .status-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+    .status-panel{background:#f9fcfb;border:1px solid #e1ece9;border-radius:14px;padding:19px}
+    .status-panel-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:11px}
+    .status-panel-head h3{margin:0}
+    .tag{font-size:12px;padding:4px 10px;border-radius:100px;background:#e9eef0;color:#466168;font-weight:700;white-space:nowrap}
+    .tag.ok{background:#e3f4e9;color:#256644}.tag.warn{background:#fff0db;color:#8a5b23}
+    .feed-detail{border-top:1px dashed #cfdedc;padding:13px 0}.feed-detail:first-child{border-top:0}
+    .feed-detail strong{font-size:15px;display:block}.feed-detail p{margin:5px 0;font-size:13px;color:#526b6e}
+    .feed-detail a{color:var(--teal);font-weight:700;font-size:13px;text-decoration:underline;text-underline-offset:3px}
+    .blank{min-height:86px;display:flex;flex-direction:column;justify-content:center;font-size:14px;color:var(--muted)}
+    .blank b{color:#345c60;font-weight:700}
+    .quickline{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;margin-top:16px}
+    .small-btn{display:inline-flex;align-items:center;justify-content:center;min-height:40px;border-radius:10px;background:#e8f5f2;padding:8px 13px;color:var(--teal);font-weight:750;font-size:13px}
+    .small-btn:hover{background:#d7eee8}.small-btn.external:after{content:" ↗"}
+    .filters{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:18px}
+    .filter{background:#fff;color:#456266;border:1px solid #d6e4e0;border-radius:100px;padding:8px 18px;min-height:42px;font-size:14px;font-weight:750}
+    .filter[aria-pressed="true"]{background:var(--teal);color:#fff;border-color:var(--teal)}
+    .services{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}
+    .service{border:1px solid var(--line);background:#fff;padding:21px;border-radius:18px;box-shadow:var(--shadow);display:flex;flex-direction:column;min-height:204px;transition:transform .18s,box-shadow .18s}
+    .service:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(27,61,62,.12)}
+    .service[hidden]{display:none}
+    .service .emoji{font-size:28px;width:54px;height:54px;border-radius:16px;display:grid;place-items:center;background:#eff8f5;margin-bottom:17px}
+    .service:nth-child(4n+2) .emoji{background:#fff2df}.service:nth-child(4n+3) .emoji{background:#edf2ff}.service:nth-child(4n+4) .emoji{background:#fff0ef}
+    .service h3{font-size:18px;margin-bottom:4px}.service p{font-size:13px;color:var(--muted);margin:0 0 13px;flex:1}
+    .service .go{color:var(--teal);font-weight:800;font-size:13px}
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:17px}
+    .panel{border-radius:19px;background:#fff;border:1px solid var(--line);padding:25px;box-shadow:var(--shadow)}
+    .contact{display:flex;align-items:center;gap:10px;margin:12px 0 5px;flex-wrap:wrap}
+    .contact-block{padding:14px 0;border-top:1px solid var(--line)}
+    .contact-block:first-of-type{border-top:0}
+    .contact-label{font-size:13px;color:var(--muted);font-weight:700;display:block}
+    .contact-number{display:inline-block;color:var(--teal);text-decoration:underline;text-underline-offset:4px;font-size:23px;font-weight:900;line-height:1.6}
+    .copyphone{background:#fff;color:var(--teal);border:1px solid #abcfc9;border-radius:12px;padding:11px 16px;font-size:14px;font-weight:750;min-height:46px}
+    .phone{background:#edf7f5;color:var(--teal);font-weight:850;padding:11px 16px;border-radius:13px;display:inline-flex;align-items:center;min-height:45px}
+    .linkbutton{display:inline-flex;align-items:center;min-height:44px;background:var(--teal);color:#fff;border-radius:11px;padding:11px 16px;font-weight:750;font-size:14px;margin-right:6px;margin-top:4px}
+    .linkbutton:hover{background:#104a50}
+    .notice-list{margin:17px 0 0;padding:0;list-style:none}.notice-list li{padding:14px 0;border-bottom:1px solid var(--line)}.notice-list li:last-child{border:0}
+    .notice-list strong{display:block}.notice-list p{margin:4px 0 0;color:var(--muted);font-size:13px}
+    .notice-list a{color:var(--teal);text-decoration:underline}
+    .help-row{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-top:18px}
+    .help-row a{display:block;background:#fff;border:1px solid var(--line);padding:14px;border-radius:13px;text-align:center;font-size:13px;font-weight:700;color:var(--teal)}
+    .help-row a strong{display:block;font-size:20px;color:var(--dark)}
+    .mini-note{font-size:13px;color:var(--muted);margin-top:12px}
+    footer{background:#ebf1ef;border-top:1px solid #d8e5e0;padding:25px 0 30px}
+    footer p{font-size:12px;color:#536c70;margin:7px 0}footer a{text-decoration:underline}
+    .hidden-message{display:none;text-align:center;padding:30px;color:var(--muted);background:#fff;border:1px solid var(--line);border-radius:15px}
+    .hidden-message.visible{display:block}
+    @media(max-width:900px){.services{grid-template-columns:repeat(3,1fr)}}
+    @media(max-width:680px){.wrap{width:min(100% - 26px,1120px)}.top .wrap{min-height:70px}.top nav{display:none}.brand b{font-size:20px}.hero .wrap{padding:38px 0 42px}.lead{font-size:16px}.section{padding-top:28px}h2{font-size:22px}.services{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.service{padding:16px;min-height:192px;border-radius:15px}.service h3{font-size:17px}.status-grid,.split{grid-template-columns:1fr}.status-box{padding:16px}.status-panel{padding:15px}.panel{padding:19px}.help-row{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.help-row a{padding:10px 6px}.help-row a strong{font-size:18px}}
+    @media(max-width:380px){.search button{padding:10px 13px}.service{padding:13px}.filters{gap:6px}.filter{padding:7px 12px}.hero-call{width:100%;justify-content:center}.phone,.copyphone{flex:1;justify-content:center}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip">跳到主要內容</a>
+  <header class="top"><div class="wrap">
+    <a class="brand" href="#top" aria-label="東勢里生活通首頁"><span class="brand-icon" aria-hidden="true">🏡</span><span><b>東勢里生活通</b><small>臺中市東區 · 里民生活資訊站</small></span></a>
+    <nav aria-label="頁面導覽"><a href="#latest">近期公告</a><a href="#services">生活查詢</a><a href="#local">里辦服務</a><a href="#safety">緊急聯絡</a></nav>
+  </div></header>
+  <div class="hero" id="top"><div class="wrap">
+    <span class="eyebrow">🌿 東區東勢里 · 便民服務試行版</span>
+    <h1>生活大小事，<br>一站幫您找。</h1>
+    <p class="lead">停水停電、垃圾車、交通路況、天災消息與里辦服務，重要資訊不再四處找。</p>
+    <form id="searchForm" class="search" role="search">
+      <label for="searchInput" aria-hidden="true">⌕</label><input id="searchInput" type="search" aria-label="搜尋生活資訊" placeholder="試試：停電、垃圾車、交通、里長…" autocomplete="off">
+      <button type="submit">搜尋</button>
+    </form>
+    <div class="hero-actions" aria-label="直接電話聯絡">
+      <a class="hero-call" href="tel:0932613620" aria-label="撥打張財良里長手機 0932-613-620">☎ 張財良里長　0932-613-620</a>
+      <a class="hero-call secondary" href="tel:0422115088" aria-label="撥打東勢里辦公處 04-2211-5088">☎ 里辦市話　04-2211-5088</a>
+    </div>
+    <div class="hero-foot">不需登入 · 免費查詢 · 官方資訊來源</div>
+  </div></div>
+  <main id="main" class="wrap">
+    <section class="section" id="latest" aria-labelledby="latest-title">
+      <div class="section-head"><div><h2 id="latest-title">📣 東區近期民生公告</h2><p class="muted">開放資料自動彙整區 · 目前僅篩選「臺中市東區」相關公告</p></div><span class="tiny" id="updatedAt">資料更新時間：尚未同步</span></div>
+      <div class="status-box">
+        <p class="notice-tip">重要：此區顯示的「東區相關」不等於「東勢里全里受影響」。請點開公告確認街道與門牌。臨時停電、搶修及復電時間，以台電、台水最新公告為準。</p>
+        <div class="status-grid">
+          <div class="status-panel"><div class="status-panel-head"><h3>💧 停水／降壓</h3><span class="tag" id="waterTag">尚未同步</span></div><div id="waterFeed" aria-live="polite"><div class="blank"><b>公告資料尚未同步</b>請使用下方官方查詢。</div></div><a class="small-btn external" target="_blank" rel="noopener noreferrer" href="https://web.water.gov.tw/wateroff/city/%E8%87%BA%E4%B8%AD%E5%B8%82/index.html">台水最新停水公告</a></div>
+          <div class="status-panel"><div class="status-panel-head"><h3>⚡ 計畫性停電</h3><span class="tag" id="powerTag">尚未同步</span></div><div id="powerFeed" aria-live="polite"><div class="blank"><b>公告資料尚未同步</b>請使用下方官方查詢。</div></div><a class="small-btn external" target="_blank" rel="noopener noreferrer" href="https://service.taipower.com.tw/nds/ndsWeb/ndft112.aspx">台電停電查詢</a></div>
+        </div>
+        <div class="quickline"><span class="tiny" id="feedNote">試行版本：首次設定自動更新前，這裡不顯示即時狀態。</span><a class="small-btn" href="#services">查看更多生活服務 ↓</a></div>
+      </div>
+    </section>
+
+    <section class="section" id="services" aria-labelledby="services-title">
+      <div class="section-head"><div><h2 id="services-title">常用生活查詢</h2><p class="muted">點一下就能前往主管機關的查詢或通報頁面</p></div><span class="tiny" id="resultCount"></span></div>
+      <div class="filters" role="group" aria-label="服務分類">
+        <button class="filter" type="button" data-filter="all" aria-pressed="true">全部服務</button>
+        <button class="filter" type="button" data-filter="utilities" aria-pressed="false">停水停電</button>
+        <button class="filter" type="button" data-filter="traffic" aria-pressed="false">交通清運</button>
+        <button class="filter" type="button" data-filter="safety" aria-pressed="false">防災生活</button>
+        <button class="filter" type="button" data-filter="local" aria-pressed="false">里民服務</button>
+      </div>
+      <div class="services" id="serviceGrid">
+        <a class="service" data-category="utilities" data-search="停電 電力 台電 電號 事故 故障 1911" href="https://service.taipower.com.tw/nds/ndsWeb/ndft112.aspx" target="_blank" rel="noopener noreferrer"><span class="emoji">⚡</span><h3>停電查詢</h3><p>以地址或電號查詢事故停電及復電資訊</p><span class="go">前往台電查詢 ↗</span></a>
+        <a class="service" data-category="utilities" data-search="停水 自來水 水壓 降壓 台水 1910" href="https://web.water.gov.tw/wateroff/city/%E8%87%BA%E4%B8%AD%E5%B8%82/index.html" target="_blank" rel="noopener noreferrer"><span class="emoji">💧</span><h3>停水／降壓</h3><p>查詢停水範圍、時間、原因與供水站</p><span class="go">前往台水查詢 ↗</span></a>
+        <a class="service" data-category="traffic" data-search="垃圾車 清運 資源回收 廚餘 收垃圾 東區 路線" href="https://cleaner.epb.taichung.gov.tw/" target="_blank" rel="noopener noreferrer"><span class="emoji">🚛</span><h3>垃圾車動態</h3><p>選擇東區、里別或地址查最近的收運點</p><span class="go">查垃圾車位置 ↗</span></a>
+        <a class="service" data-category="traffic" data-search="道路 路況 交通 塞車 施工 封路 事故 停車" href="https://e-traffic.taichung.gov.tw/ATIS_TCC/ATIS/Index" target="_blank" rel="noopener noreferrer"><span class="emoji">🚧</span><h3>道路與路況</h3><p>即時道路影像、施工事件與停車資訊</p><span class="go">開啟交通資訊 ↗</span></a>
+        <a class="service" data-category="safety" data-search="停班 停課 颱風 假 台中市 災害 放假" href="https://www.dgpa.gov.tw/typh/daily/nds.html?uid=56" target="_blank" rel="noopener noreferrer"><span class="emoji">🌧️</span><h3>停班停課</h3><p>查各縣市天然災害停止上班上課公告</p><span class="go">查看政府公告 ↗</span></a>
+        <a class="service" data-category="safety" data-search="颱風 豪雨 淹水 災害 警報 地震 示警" href="https://alerts.ncdr.nat.gov.tw/web/alerts/immediate" target="_blank" rel="noopener noreferrer"><span class="emoji">🚨</span><h3>即時災害示警</h3><p>查看中央與地方發布的民生示警訊息</p><span class="go">查最新示警 ↗</span></a>
+        <a class="service" data-category="traffic" data-search="公車 動態 班次 客運 到站 台中交通" href="https://citybus.taichung.gov.tw/" target="_blank" rel="noopener noreferrer"><span class="emoji">🚌</span><h3>公車到站</h3><p>查路線、站牌、班次與預估到站時間</p><span class="go">查公車動態 ↗</span></a>
+        <a class="service" data-category="safety" data-search="避難 收容 災害 疏散 避難所 東勢里 防災 地圖" href="https://www.east.taichung.gov.tw/833442/Lpsimplelist" target="_blank" rel="noopener noreferrer"><span class="emoji">🏫</span><h3>東勢里避難圖</h3><p>前往東區公所，查看東勢里避難圖資</p><span class="go">查看避難圖資 ↗</span></a>
+        <a class="service" data-category="local" data-search="1999 市政府 陳情 路燈 故障 水溝 馬路 路面" href="https://talk.taichung.gov.tw/Home/Citizen1999" target="_blank" rel="noopener noreferrer"><span class="emoji">🛠️</span><h3>1999 市政服務</h3><p>路燈故障、道路坑洞與市政問題反映</p><span class="go">查看通報方式 ↗</span></a>
+        <a class="service" data-category="local" data-search="社福 福利 補助 長照 老人 敬老 低收入戶" href="https://i-welfare.taichung.gov.tw/" target="_blank" rel="noopener noreferrer"><span class="emoji">🤝</span><h3>社會福利</h3><p>查臺中市各項社福與申辦資訊</p><span class="go">開啟社福便利站 ↗</span></a>
+        <a class="service" data-category="local" data-search="里辦 里長 張財良 東勢里 服務處 里民 電話 0932613620" href="tel:0932613620" aria-label="一鍵撥打張財良里長，0932-613-620"><span class="emoji">📞</span><h3>聯絡張財良里長</h3><p>手機：0932-613-620。點一下直接開啟撥號畫面</p><span class="go">一鍵撥打里長 ☎</span></a>
+        <a class="service" data-category="utilities" data-search="計畫性 停電 台電 維修 施工 供電" href="https://data.gov.tw/dataset/26144" target="_blank" rel="noopener noreferrer"><span class="emoji">📅</span><h3>預定停電資料</h3><p>台電每日計畫性工作停電公開資料</p><span class="go">查看資料來源 ↗</span></a>
+      </div>
+      <div class="hidden-message" id="emptyResults">沒有找到相符服務。可以改用「停電」、「交通」、「里長」等關鍵字試試。</div>
+    </section>
+
+    <section class="section" id="local" aria-labelledby="local-title">
+      <div class="section-head"><div><h2 id="local-title">東勢里服務與在地公告</h2><p class="muted">有地方的溫度，也有方便找到的服務窗口</p></div></div>
+      <div class="split">
+        <article class="panel"><h3>🏠 東勢里辦公處｜張財良里長</h3><p class="muted">服務處：臺中市東區進德路40巷33號</p>
+          <div class="contact-block">
+            <span class="contact-label">張財良里長手機（里辦提供）</span>
+            <a class="contact-number" href="tel:0932613620" aria-label="撥打張財良里長手機 0932-613-620">0932-613-620</a>
+            <div class="contact"><a class="phone" href="tel:0932613620">☎ 一鍵撥打里長</a><button class="copyphone" type="button" data-copy="0932613620" aria-label="複製張財良里長電話 0932-613-620">複製電話</button></div>
+          </div>
+          <div class="contact-block">
+            <span class="contact-label">東勢里辦公處市話（區公所公布）</span>
+            <a class="contact-number" href="tel:0422115088" aria-label="撥打東勢里辦公處市話 04-2211-5088">04-2211-5088</a>
+            <div class="contact"><a class="phone" href="tel:0422115088">☎ 一鍵撥打里辦</a><button class="copyphone" type="button" data-copy="0422115088" aria-label="複製東勢里辦公處電話 04-2211-5088">複製電話</button></div>
+          </div>
+          <a class="linkbutton" target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/dir/?api=1&amp;destination=%E8%87%BA%E4%B8%AD%E5%B8%82%E6%9D%B1%E5%8D%80%E9%80%B2%E5%BE%B7%E8%B7%AF40%E5%B7%B733%E8%99%9F">📍 Google 導航</a>
+          <a class="small-btn external" target="_blank" rel="noopener noreferrer" href="https://www.east.taichung.gov.tw/1341550/post">區公所公開資料</a>
+          <p class="mini-note">手機點擊號碼即可開啟撥號；使用電腦若未安裝通話程式，可按「複製電話」。里辦市話與地址以區公所資料為準，里長手機為里辦提供。</p>
+        </article>
+        <article class="panel"><h3>📌 里內公告欄</h3><p class="muted">之後可放社區活動、里民通知、環境清潔或臨時公告</p><ul class="notice-list" id="localNotices"><li><strong>尚無已發布的里辦公告</strong><p>這是試行版，尚未建立里辦公告發布流程。</p></li></ul><p class="mini-note">里內資訊需要授權的管理者發布，避免未經查證的訊息被當成正式公告。</p></article>
+      </div>
+    </section>
+
+    <section class="section" id="safety" aria-labelledby="safety-title"><div class="section-head"><h2 id="safety-title">有事找得到人</h2></div>
+      <div class="help-row">
+        <a href="tel:1911"><strong>1911</strong>台電客服</a>
+        <a href="tel:1910"><strong>1910</strong>台水客服</a>
+        <a href="tel:1999"><strong>1999</strong>臺中市政</a>
+      </div>
+      <p class="mini-note">遇到人身安全緊急事件，請撥 110（警察）或 119（消防／救護）。事故停電、漏水或搶修請直接向主管單位通報。</p>
+    </section>
+  </main>
+  <footer><div class="wrap"><strong>東勢里生活通｜臺中市東區</strong><p>試行版：本網站整合公部門開放資料與官方連結，非政府機關官網；資訊可能延遲或變動。停電、停水及災防訊息以原發布單位為準。</p><p>資料來源：台灣電力公司、台灣自來水公司、臺中市政府、行政院人事行政總處、國家災害防救科技中心等。平台不要求輸入身分證字號、電號或個人資料。</p><p><strong>網站製作人：張家瑜</strong>　｜　<strong>© 2026 張家瑜　版權所有</strong></p><p>版權標示適用於本站原創設計與內容；政府公告、開放資料及外部網站權利分屬其原權利人。</p></div></footer>
+  <script>
+  (()=>{'use strict';
+    const cards=[...document.querySelectorAll('.service')],filters=[...document.querySelectorAll('.filter')];
+    const searchInput=document.getElementById('searchInput');let currentFilter='all';
+    function normalize(s){return String(s??'').trim().toLowerCase().replace(/\s+/g,'')}
+    function filterServices(){const q=normalize(searchInput.value);let count=0;cards.forEach(card=>{
+      const visible=(currentFilter==='all'||card.dataset.category===currentFilter)&&(!q||normalize((card.textContent||'')+' '+(card.dataset.search||'')).includes(q));card.hidden=!visible;if(visible)count++;
+    });document.getElementById('emptyResults').classList.toggle('visible',count===0);
+      document.getElementById('resultCount').textContent=count+' 項服務';
+    }
+    filters.forEach(btn=>btn.addEventListener('click',()=>{currentFilter=btn.dataset.filter;filters.forEach(other=>other.setAttribute('aria-pressed',String(other===btn)));filterServices();}));
+    document.getElementById('searchForm').addEventListener('submit',e=>{e.preventDefault();currentFilter='all';filters.forEach(other=>other.setAttribute('aria-pressed',String(other.dataset.filter==='all')));filterServices();document.getElementById('services').scrollIntoView({behavior:'smooth'});});
+    searchInput.addEventListener('input',filterServices);filterServices();
+    document.querySelectorAll('button[data-copy]').forEach(button=>button.addEventListener('click', async ()=>{
+      const number=button.dataset.copy;
+      try{
+        if(navigator.clipboard?.writeText){await navigator.clipboard.writeText(number);}else{
+          const input=document.createElement('textarea');input.value=number;input.setAttribute('readonly','');
+          input.style.position='fixed';input.style.left='-9999px';document.body.appendChild(input);input.select();
+          const copied=document.execCommand('copy');input.remove();if(!copied)throw Error('copy failed');
+        }
+        const previous=button.textContent;button.textContent='✓ 已複製';setTimeout(()=>button.textContent=previous,1600);
+      }catch(_){window.prompt('請複製電話號碼：',number);}
+    }));
+    const safeText=(v,max=900)=>String(v??'').slice(0,max),el=(tag,txt,cls)=>{const node=document.createElement(tag);node.textContent=safeText(txt);if(cls)node.className=cls;return node};
+    const humanDate=raw=>{if(!raw)return '';let v=String(raw).trim();return v.replace('T',' ').replace(/\+08:00$/,'').slice(0,16)};
+    function renderFeed(name,provider){const feed=document.getElementById(name+'Feed'),tag=document.getElementById(name+'Tag');
+      const ok=provider&&provider.status==='ok',records=Array.isArray(provider?.items)?provider.items:[];feed.replaceChildren();
+      tag.textContent=ok?'已讀取官方資料':provider?.status==='stale'?'資料更新失敗':'尚未同步';tag.className='tag'+(ok?' ok':' warn');
+      if(!ok){let b=el('div','', 'blank');b.appendChild(el('b',provider?.status==='stale'?'同步暫時失敗，請查官方網站':'尚未取得自動同步資料'));
+        b.appendChild(el('span','不能據此認定沒有停水或停電。'));feed.appendChild(b);return;}
+      if(!records.length){let b=el('div','', 'blank');b.appendChild(el('b','本次彙整未找到東區相關紀錄'));b.appendChild(el('span','不代表個別地址無事故；需要時請向主管單位查詢。'));feed.appendChild(b);return;}
+      records.slice(0,7).forEach(item=>{const box=el('article','','feed-detail');box.appendChild(el('strong',(name==='water'?(item.type||'停水／降壓'):'計畫性停電')+' · '+(item.area||'範圍請詳閱公告')));
+        const when=(name==='power')
+          ?(item.start?'第一次停電時間：'+safeText(item.start,90)+'　':'')+(item.end?'第二次停電時間：'+safeText(item.end,90):'')
+          :(item.start?'公告開始：'+humanDate(item.start)+'　':'')+(item.end?'預計恢復：'+humanDate(item.end):'');
+        const p=el('p',when);box.appendChild(p);
+        if(item.reason)box.appendChild(el('p','原因／內容：'+safeText(item.reason,150)));
+        const a=document.createElement('a');a.href=name==='water'?'https://web.water.gov.tw/wateroff/city/%E8%87%BA%E4%B8%AD%E5%B8%82/index.html':'https://service.taipower.com.tw/nds/ndsWeb/ndft112.aspx';a.target='_blank';a.rel='noopener noreferrer';a.textContent='前往官方確認街道範圍 ↗';box.appendChild(a);feed.appendChild(box);
+      });
+    }
+    fetch('./data/status.json?nocache='+Date.now(),{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('no feed');return r.json()}).then(data=>{
+      renderFeed('water',data.water);renderFeed('power',data.power);
+      if(data.generated_at)document.getElementById('updatedAt').textContent='最近同步檢查：'+humanDate(data.generated_at)+'（臺灣時間）';
+      document.getElementById('feedNote').textContent='提示：自動彙整可能有時間差。臺中市東區公告不一定涵蓋東勢里，請核對街道門牌與官方最新資訊。';
+    }).catch(()=>{renderFeed('water',null);renderFeed('power',null);});
+    fetch('./data/announcements.json?nocache='+Date.now(),{cache:'no-store'}).then(r=>r.ok?r.json():[]).then(items=>{
+      if(!Array.isArray(items)||!items.length)return;const list=document.getElementById('localNotices');list.replaceChildren();items.slice(0,10).forEach(item=>{
+        const li=document.createElement('li'),link=item.url&&/^https:\/\//.test(item.url)?document.createElement('a'):null;
+        if(link){link.href=item.url;link.target='_blank';link.rel='noopener noreferrer';link.textContent=safeText(item.title,100);li.appendChild(link)}else{li.appendChild(el('strong',item.title||'里內公告'));}
+        if(item.date||item.summary){li.appendChild(el('p',safeText([item.date,item.summary].filter(Boolean).join('｜'),300)));}list.appendChild(li);
+      });
+    }).catch(()=>{});
+  })();
+  </script>
+</body>
+</html>
