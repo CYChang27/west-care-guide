@@ -466,6 +466,7 @@ footer .copyright-notice p {font-size:15px;line-height:1.85;color:#415b5e;margin
       const n=document.createElement(tag);n.textContent=safeText(txt);if(cls)n.className=cls;return n;
     };
     const place=v=>clean(v).replace(/^(?:臺中市|台中市)東區/,'').trim();
+    const humanDate=raw=>clean(raw).replace('T',' ').replace(/\+08:00$/,'').slice(0,16);
     function shortTime(v){
       const s=clean(v);
       if(!s)return '';
