@@ -200,6 +200,10 @@ footer p { margin: 3px 0; font-size: 13px; }
   .resource-footer, footer { flex-direction: column; }
   .quick-link { grid-template-columns: 46px 1fr; }
   .quick-link > b { display: none; }
+  .resource-address { min-height: 54px; grid-template-columns: 24px minmax(0,1fr); padding: 11px 12px; touch-action: manipulation; }
+  .resource-address-pin { align-self: start; padding-top: 3px; }
+  .resource-address-text { font-size: 14px; }
+  .resource-address-action { grid-column: 1 / -1; width: 100%; padding: 10px 12px; border-radius: 10px; text-align: center; font-size: 14px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
