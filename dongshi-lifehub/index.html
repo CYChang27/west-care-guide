@@ -98,12 +98,154 @@
     @media(max-width:380px){.search button{padding:10px 13px}.service{padding:13px}.filters{gap:6px}.filter{padding:7px 12px}.hero-call{width:100%;justify-content:center}.phone,.copyphone{flex:1;justify-content:center}}
     @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
   </style>
+
+<style id="readable-style">
+/* 東勢里生活通：清晰閱讀版，保留原本功能與官方連結 */
+:root { --teal:#0e5b61; --dark:#173c41; --muted:#415e63; --line:#ccddd9; --cream:#f6f8f6; --shadow:0 4px 16px rgba(14,55,59,.07) }
+body {font-size:18px;line-height:1.75;letter-spacing:.005em}
+.wrap {width:min(1060px,calc(100% - 40px))}
+.top .wrap {min-height:88px}
+.brand b {font-size:25px;line-height:1.3}
+.brand small {font-size:15px;color:#446367}
+.top nav {font-size:16px;gap:22px}
+.reader-toggle {border:1px solid #9ac5bc;background:#e5f4ee;color:#15565c;border-radius:12px;font-size:16px;font-weight:800;min-height:46px;padding:9px 14px;white-space:nowrap}
+.reader-toggle[aria-pressed="true"] {background:#174b52;color:#fff}
+.hero {background:linear-gradient(118deg,#125d65,#197a78)}
+.hero .wrap {padding:45px 0 44px}
+.eyebrow {font-size:16px;padding:7px 15px}
+h1 {font-size:clamp(34px,5vw,50px);line-height:1.35;margin:16px 0 12px}
+.lead {font-size:19px;line-height:1.75;max-width:700px;margin-bottom:24px}
+.search {padding:8px 10px;max-width:710px}
+.search input {font-size:18px;min-height:54px}
+.search input::placeholder {color:#586e72;opacity:1}
+.search button {font-size:18px;min-height:52px;padding:12px 25px}
+.hero-actions {gap:12px;margin-top:22px}
+.hero-call {min-height:56px;font-size:18px;padding:11px 18px}
+.hero-foot {font-size:15px;margin-top:16px}
+.section {padding-top:38px}
+.section-head {gap:14px;margin-bottom:20px}
+h2 {font-size:29px;line-height:1.42}
+h3 {font-size:21px}
+.muted {font-size:16px;color:#435e62;line-height:1.65}
+.tiny {font-size:15px;color:#4d676a}
+.quick-access {padding-top:28px;scroll-margin-top:15px}
+.quick-access-header {margin-bottom:15px}
+.quick-access-header h2 {font-size:27px;margin-bottom:3px}
+.quick-access-grid {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}
+.quick-tile {background:#fff;border:2px solid #d3e5e0;border-radius:18px;min-height:126px;padding:18px 16px;display:flex;flex-direction:column;align-items:flex-start;gap:9px;box-shadow:var(--shadow)}
+.quick-tile:hover,.quick-tile:focus-visible {border-color:#117a76;background:#f3fbf8}
+.quick-tile .quick-icon {font-size:30px;line-height:1}
+.quick-tile strong {display:block;font-size:20px;color:#143e43;line-height:1.35}
+.quick-tile small {display:block;font-size:15px;color:#4b6365;line-height:1.45;margin-top:2px}
+.quick-tile .quick-arrow {color:#17676a;font-size:23px;margin-left:auto;line-height:1}
+.status-box {padding:25px}
+.notice-tip {font-size:16px;line-height:1.7;padding:15px 18px;margin-bottom:20px}
+.status-grid {gap:18px}
+.status-panel {padding:21px;background:#fff}
+.status-panel-head {align-items:flex-start;flex-wrap:wrap;margin-bottom:14px}
+.tag {font-size:15px;padding:6px 10px}
+.feed-detail strong {font-size:17px}
+.feed-detail p {font-size:16px;line-height:1.65}
+.feed-detail a {font-size:16px;display:inline-block;padding:8px 0}
+.blank {font-size:16px;min-height:105px;line-height:1.7}
+.small-btn {min-height:48px;font-size:16px;padding:10px 15px}
+.quickline {align-items:flex-start}
+.filters {gap:10px;margin-bottom:20px}
+.filter {font-size:17px;min-height:48px;padding:9px 18px}
+.services {grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.service {min-height:220px;padding:24px;box-shadow:var(--shadow)}
+.service h3 {font-size:20px;margin-bottom:7px}
+.service p {font-size:16px;line-height:1.7;margin-bottom:12px}
+.service .go {font-size:16px;text-decoration:underline;text-underline-offset:3px}
+.service .emoji {font-size:30px}
+.panel {padding:27px}
+.contact-label {font-size:16px;color:#435e62}
+.contact-number {font-size:26px;line-height:1.65}
+.copyphone,.phone,.linkbutton {font-size:16px;min-height:50px}
+.notice-list p,.mini-note,footer p {font-size:15px;line-height:1.75}
+.help-row a {font-size:16px;min-height:80px}
+.help-row a strong {font-size:26px}
+.hidden-message {font-size:17px}
+:root.larger-type body {font-size:21px}
+:root.larger-type .brand b {font-size:27px}
+:root.larger-type .lead {font-size:22px}
+:root.larger-type h2 {font-size:33px}
+:root.larger-type h3,:root.larger-type .quick-tile strong,:root.larger-type .service h3 {font-size:24px}
+:root.larger-type .muted,:root.larger-type .tiny,:root.larger-type .service p,:root.larger-type .service .go,:root.larger-type .feed-detail p,:root.larger-type .blank,:root.larger-type .notice-tip,:root.larger-type .small-btn,:root.larger-type .tag,:root.larger-type .notice-list p,:root.larger-type .mini-note,:root.larger-type footer p,:root.larger-type .contact-label,:root.larger-type .quick-tile small {font-size:19px}
+:root.larger-type .filter,:root.larger-type .hero-call,:root.larger-type .copyphone,:root.larger-type .phone,:root.larger-type .linkbutton,:root.larger-type .quick-tile small {font-size:19px}
+:root.larger-type .quick-tile {min-height:148px}
+:root.larger-type .contact-number {font-size:30px}
+@media(max-width:950px) {.quick-access-grid {grid-template-columns:repeat(2,minmax(0,1fr))} .top nav {display:none} }
+@media(max-width:680px) {
+  .wrap {width:calc(100% - 32px)}
+  .top .wrap {min-height:76px;gap:10px}
+  .brand {gap:9px}
+  .brand-icon {width:44px;height:44px;font-size:23px;border-radius:12px;flex-shrink:0}
+  .brand b {font-size:22px}
+  .brand small {font-size:13px}
+  .reader-toggle {min-height:44px;padding:8px 10px;font-size:15px}
+  .hero .wrap {padding:34px 0 32px}
+  .eyebrow {font-size:14px}
+  h1 {font-size:35px;line-height:1.35}
+  .lead {font-size:18px;line-height:1.75;margin-bottom:19px}
+  .search {border-radius:14px}
+  .search input {font-size:17px;min-height:49px}
+  .search button {font-size:17px;min-height:49px;padding:9px 16px}
+  .hero-call {width:100%;justify-content:center;min-height:55px;font-size:17px}
+  .hero-foot {font-size:15px}
+  .quick-access {padding-top:27px}
+  .quick-access-header h2 {font-size:25px}
+  .quick-access-grid {grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+  .quick-tile {min-height:132px;padding:15px 13px}
+  .quick-tile strong {font-size:19px}
+  .quick-tile small {font-size:15px}
+  .section {padding-top:33px}
+  h2 {font-size:25px}
+  h3 {font-size:20px}
+  .muted {font-size:16px}
+  .tiny {font-size:15px}
+  .status-grid,.split {grid-template-columns:1fr;gap:14px}
+  .status-box {padding:16px}
+  .status-panel {padding:17px}
+  .status-panel-head h3 {font-size:21px}
+  .notice-tip {font-size:16px}
+  .services {grid-template-columns:1fr;gap:11px}
+  .service {min-height:0;display:grid;grid-template-columns:58px minmax(0,1fr);grid-template-rows:auto auto auto;column-gap:15px;row-gap:2px;padding:18px;border-radius:16px}
+  .service .emoji {grid-column:1;grid-row:1/4;align-self:start;width:53px;height:53px;margin:3px 0 0;font-size:27px}
+  .service h3 {grid-column:2;grid-row:1;font-size:20px;margin:0}
+  .service p {grid-column:2;grid-row:2;margin:3px 0 4px;font-size:16px;line-height:1.7}
+  .service .go {grid-column:2;grid-row:3;font-size:16px}
+  .filter {font-size:16px;min-height:46px;padding:8px 15px}
+  .panel {padding:20px}
+  .contact-number {font-size:25px}
+  .contact {gap:9px}
+  .copyphone,.phone {font-size:16px}
+  .help-row {grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+  .help-row a {font-size:14px;padding:11px 5px}
+  .help-row a strong {font-size:24px}
+  footer {padding-bottom:35px}
+  footer p {font-size:15px}
+}
+@media(max-width:360px) {
+  .brand b {font-size:19px}
+  .brand small {font-size:12px}
+  .reader-toggle {font-size:14px;padding:7px 8px}
+  .quick-access-grid {grid-template-columns:1fr}
+  .quick-tile {flex-direction:row;align-items:center;min-height:80px}
+  .quick-tile .quick-icon {font-size:27px}
+  .quick-tile .quick-arrow {margin-left:auto}
+  .hero .search label {display:none}
+  .hero .search button {padding:8px 12px}
+}
+@media (prefers-reduced-motion:reduce) {.service {transition:none}}
+</style>
 </head>
 <body>
   <a href="#main" class="skip">跳到主要內容</a>
   <header class="top"><div class="wrap">
     <a class="brand" href="#top" aria-label="東勢里生活通首頁"><span class="brand-icon" aria-hidden="true">🏡</span><span><b>東勢里生活通</b><small>臺中市東區 · 里民生活資訊站</small></span></a>
     <nav aria-label="頁面導覽"><a href="#latest">近期公告</a><a href="#services">生活查詢</a><a href="#local">里辦服務</a><a href="#safety">緊急聯絡</a></nav>
+    <button id="readerToggle" class="reader-toggle" type="button" aria-pressed="false" aria-label="放大網頁字體">A＋ 放大字</button>
   </div></header>
   <div class="hero" id="top"><div class="wrap">
     <span class="eyebrow">🌿 東區東勢里 · 便民服務試行版</span>
@@ -120,6 +262,16 @@
     <div class="hero-foot">不需登入 · 免費查詢 · 官方資訊來源</div>
   </div></div>
   <main id="main" class="wrap">
+    <section class="quick-access" id="frequent" aria-labelledby="frequent-title">
+      <div class="quick-access-header"><h2 id="frequent-title">常用服務，直接點</h2><p class="muted">不用慢慢找，點選就能前往查詢或撥號</p></div>
+      <div class="quick-access-grid">
+        <a class="quick-tile" href="https://web.water.gov.tw/wateroff/city/%E8%87%BA%E4%B8%AD%E5%B8%82/index.html" target="_blank" rel="noopener noreferrer" aria-label="前往台水官方停水查詢"><span class="quick-icon" aria-hidden="true">💧</span><span><strong>查停水</strong><small>停水、降壓公告</small></span><span class="quick-arrow" aria-hidden="true">↗</span></a>
+        <a class="quick-tile" href="https://service.taipower.com.tw/nds/ndsWeb/ndft112.aspx" target="_blank" rel="noopener noreferrer" aria-label="前往台電官方停電查詢"><span class="quick-icon" aria-hidden="true">⚡</span><span><strong>查停電</strong><small>停電、供電資訊</small></span><span class="quick-arrow" aria-hidden="true">↗</span></a>
+        <a class="quick-tile" href="https://cleaner.epb.taichung.gov.tw/" target="_blank" rel="noopener noreferrer" aria-label="前往臺中市垃圾車動態查詢"><span class="quick-icon" aria-hidden="true">🚛</span><span><strong>找垃圾車</strong><small>清運路線與位置</small></span><span class="quick-arrow" aria-hidden="true">↗</span></a>
+        <a class="quick-tile" href="tel:0932613620" aria-label="撥打張財良里長，0932-613-620"><span class="quick-icon" aria-hidden="true">☎️</span><span><strong>打給張財良里長</strong><small>0932-613-620</small></span><span class="quick-arrow" aria-hidden="true">☎</span></a>
+      </div>
+    </section>
+
     <section class="section" id="latest" aria-labelledby="latest-title">
       <div class="section-head"><div><h2 id="latest-title">📣 東區近期民生公告</h2><p class="muted">開放資料自動彙整區 · 目前僅篩選「臺中市東區」相關公告</p></div><span class="tiny" id="updatedAt">資料更新時間：尚未同步</span></div>
       <div class="status-box">
@@ -192,6 +344,22 @@
   <footer><div class="wrap"><strong>東勢里生活通｜臺中市東區</strong><p>試行版：本網站整合公部門開放資料與官方連結，非政府機關官網；資訊可能延遲或變動。停電、停水及災防訊息以原發布單位為準。</p><p>資料來源：台灣電力公司、台灣自來水公司、臺中市政府、行政院人事行政總處、國家災害防救科技中心等。平台不要求輸入身分證字號、電號或個人資料。</p><p><strong>網站製作人：張家瑜</strong>　｜　<strong>© 2026 張家瑜　版權所有</strong></p><p>版權標示適用於本站原創設計與內容；政府公告、開放資料及外部網站權利分屬其原權利人。</p></div></footer>
   <script>
   (()=>{'use strict';
+
+    // 字體可放大並在此裝置保留偏好；不改動公告同步機制
+    const readerToggle=document.getElementById('readerToggle');
+    let largeText=false;
+    try {largeText=localStorage.getItem('dongshi-large-type')==='1'}catch(_){}
+    function setTextSize(enabled){
+      document.documentElement.classList.toggle('larger-type',enabled);
+      readerToggle.setAttribute('aria-pressed',String(enabled));
+      readerToggle.textContent=enabled?'A－ 標準字':'A＋ 放大字';
+      readerToggle.setAttribute('aria-label',enabled?'恢復標準字體':'放大網頁字體');
+    }
+    setTextSize(largeText);
+    readerToggle.addEventListener('click',()=>{
+      largeText=!largeText;setTextSize(largeText);
+      try{localStorage.setItem('dongshi-large-type',largeText?'1':'0')}catch(_){}
+    });
     const cards=[...document.querySelectorAll('.service')],filters=[...document.querySelectorAll('.filter')];
     const searchInput=document.getElementById('searchInput');let currentFilter='all';
     function normalize(s){return String(s??'').trim().toLowerCase().replace(/\s+/g,'')}
