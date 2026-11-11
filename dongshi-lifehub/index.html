@@ -279,6 +279,7 @@ footer .copyright-notice p {font-size:15px;line-height:1.85;color:#415b5e;margin
 .feed-event-line{font-size:17px;line-height:1.65;color:#2e494d;margin:5px 0}
 .feed-event-line .event-label{display:inline-block;min-width:90px;color:#466267;font-weight:700}
 .feed-event-line .event-value{font-weight:750}
+.feed-event-line.scope .event-value{font-weight:550;line-height:1.8}
 .feed-event-reason{font-size:16px;line-height:1.65;color:#4d666a;margin:5px 0}
 .feed-expand{border:1px solid #d6e6e1;background:#f7fbf9;border-radius:11px;padding:10px 13px;margin-top:10px}
 .feed-expand summary{cursor:pointer;color:#166369;font-size:16px;font-weight:800}
@@ -491,13 +492,13 @@ footer .copyright-notice p {font-size:15px;line-height:1.85;color:#415b5e;margin
     function eventCard(item,source){
       const n=el('article','','feed-event'),heading=el('div','','feed-event-heading');
       const roads=source==='power'?item.areas:[place(item.area)].filter(Boolean);
-      const label=!roads.length?'影響範圍待確認':roads.length===1?roads[0]:roads.slice(0,2).join('、')+' 等 '+roads.length+' 處';
+      const label=source==='water'?(clean(item.type)||'停水／降壓')+'公告':(!roads.length?'影響範圍待確認':roads.length===1?roads[0]:roads.slice(0,2).join('、')+' 等 '+roads.length+' 處');
       heading.appendChild(el('strong',label,'feed-event-place'));
       const d=day(item.start);if(d)heading.appendChild(el('span',d,'feed-event-date'));
       n.appendChild(heading);
       const line=(label,value)=>{
         if(!value)return;
-        const row=el('p','','feed-event-line');
+        const row=el('p','','feed-event-line'+(label==='影響範圍'?' scope':''));
         row.appendChild(el('span',label,'event-label'));
         row.appendChild(el('span',value,'event-value'));
         n.appendChild(row);
@@ -506,6 +507,7 @@ footer .copyright-notice p {font-size:15px;line-height:1.85;color:#415b5e;margin
         line('停電時段',shortTime(item.start));
         line('第二時段',shortTime(item.end));
       }else{
+        line('影響範圍',roads[0]||'官方未提供詳細路段');
         line('開始時間',shortTime(item.start));
         line('預計恢復',shortTime(item.end));
       }
