@@ -260,6 +260,49 @@ footer .copyright-notice p {font-size:15px;line-height:1.85;color:#415b5e;margin
  .copyright-notice {padding:15px 16px}
  footer .copyright-notice p {font-size:15px}
 }
+
+/* 民生公告：一件工程一張卡片，單欄閱讀 */
+#latest .status-grid{grid-template-columns:minmax(0,1fr);gap:18px}
+#latest .status-panel{background:#fff;padding:23px 25px;border:1px solid #d6e4e0}
+#latest .status-panel-head h3{font-size:24px}
+#latest .status-panel>.small-btn{margin-top:12px}
+#latest .tag.ok{background:#edf3f1;color:#3a5b60}
+.feed-intro{font-size:16px;line-height:1.7;color:#415e62;margin:0 0 12px}
+.feed-warning{background:#fff8e9;border:1px solid #ebdabb;border-radius:13px;padding:16px 19px;margin:8px 0 12px}
+.feed-warning strong{display:block;color:#664417;font-size:19px}
+.feed-warning p{font-size:16px;color:#67543d;line-height:1.7;margin:8px 0}
+.feed-event{padding:17px 0;border-bottom:1px solid #dbe8e4}
+.feed-event:last-child{border-bottom:0}
+.feed-event-heading{display:flex;flex-wrap:wrap;align-items:center;gap:9px;margin-bottom:8px}
+.feed-event-place{font-size:21px;font-weight:850;line-height:1.5;color:#153d42}
+.feed-event-date{border-radius:99px;background:#e8f5f1;color:#1b6062;font-size:15px;font-weight:800;padding:3px 11px}
+.feed-event-line{font-size:17px;line-height:1.65;color:#2e494d;margin:5px 0}
+.feed-event-line .event-label{display:inline-block;min-width:90px;color:#466267;font-weight:700}
+.feed-event-line .event-value{font-weight:750}
+.feed-event-reason{font-size:16px;line-height:1.65;color:#4d666a;margin:5px 0}
+.feed-expand{border:1px solid #d6e6e1;background:#f7fbf9;border-radius:11px;padding:10px 13px;margin-top:10px}
+.feed-expand summary{cursor:pointer;color:#166369;font-size:16px;font-weight:800}
+.feed-expand[open] summary{margin-bottom:10px}
+.feed-expand p{font-size:16px;line-height:1.75;color:#425c61;margin:8px 0}
+.feed-small-row{font-size:15px;line-height:1.65;color:#3f5c60;padding:8px 0;border-top:1px dashed #d7e4df}
+.feed-more{margin-top:16px}
+.feed-more>summary{cursor:pointer;list-style-position:inside;border-radius:12px;background:#e9f6f2;border:1px solid #abd1c6;color:#175b61;font-size:17px;font-weight:800;padding:11px 15px}
+.street-search{background:#f3f8f6;border-radius:13px;padding:14px 16px;margin:4px 0 16px}
+.street-search label{display:block;font-size:16px;font-weight:800;color:#235055;margin-bottom:8px}
+.street-search input{min-height:50px;padding:11px 13px;border:1px solid #a8c8c0;border-radius:10px;font-size:17px;width:100%;max-width:470px;background:#fff;color:#244247}
+.street-search>span{display:block;font-size:14px;color:#526d71;margin-top:7px;line-height:1.6}
+:root.larger-type .feed-event-place{font-size:26px}
+:root.larger-type .feed-event-line,:root.larger-type .feed-event-reason,:root.larger-type .feed-intro,:root.larger-type .feed-warning p,:root.larger-type .feed-expand p,:root.larger-type .feed-expand summary,:root.larger-type .feed-more summary{font-size:19px}
+@media(max-width:680px){
+#latest .status-panel{padding:18px 16px}
+#latest .status-panel-head h3{font-size:22px}
+.feed-event-place{font-size:20px}
+.feed-event-line{font-size:16px}
+.feed-event-line .event-label{min-width:80px}
+.feed-warning{padding:14px}
+.street-search{padding:12px}
+.street-search input{font-size:16px}
+}
 </style>
 </head>
 <body>
@@ -295,12 +338,12 @@ footer .copyright-notice p {font-size:15px;line-height:1.85;color:#415b5e;margin
     </section>
 
     <section class="section" id="latest" aria-labelledby="latest-title">
-      <div class="section-head"><div><h2 id="latest-title">📣 東區近期民生公告</h2><p class="muted">開放資料自動彙整區 · 目前僅篩選「臺中市東區」相關公告</p></div><span class="tiny" id="updatedAt">資料更新時間：尚未同步</span></div>
+      <div class="section-head"><div><h2 id="latest-title">📣 東區民生公告</h2><p class="muted">一件工程一張卡片，先看地點與時間；詳細路段再點開</p></div><span class="tiny" id="updatedAt">資料更新時間：尚未同步</span></div>
       <div class="status-box">
-        <p class="notice-tip">重要：此區顯示的「東區相關」不等於「東勢里全里受影響」。請點開公告確認街道與門牌。臨時停電、搶修及復電時間，以台電、台水最新公告為準。</p>
+        <p class="notice-tip">提醒：這裡彙整的是「臺中市東區」資料，並非整個東勢里都受影響。沒有明確街道資料時，會提示「影響範圍待確認」。臨時事故及最新資訊請以官方公告為準。</p>
         <div class="status-grid">
           <div class="status-panel"><div class="status-panel-head"><h3>💧 停水／降壓</h3><span class="tag" id="waterTag">尚未同步</span></div><div id="waterFeed" aria-live="polite"><div class="blank"><b>公告資料尚未同步</b>請使用下方官方查詢。</div></div><a class="small-btn external" target="_blank" rel="noopener noreferrer" href="https://web.water.gov.tw/wateroff/city/%E8%87%BA%E4%B8%AD%E5%B8%82/index.html">台水最新停水公告</a></div>
-          <div class="status-panel"><div class="status-panel-head"><h3>⚡ 計畫性停電</h3><span class="tag" id="powerTag">尚未同步</span></div><div id="powerFeed" aria-live="polite"><div class="blank"><b>公告資料尚未同步</b>請使用下方官方查詢。</div></div><a class="small-btn external" target="_blank" rel="noopener noreferrer" href="https://service.taipower.com.tw/nds/ndsWeb/ndft112.aspx">台電停電查詢</a></div>
+          <div class="status-panel"><div class="status-panel-head"><h3>⚡ 計畫性停電</h3><span class="tag" id="powerTag">尚未同步</span></div><div class="street-search"><label for="powerStreetFilter">依道路名稱查找</label><input id="powerStreetFilter" type="search" placeholder="輸入路名，例如：進德路" autocomplete="off"><span>僅篩選公告中的道路名稱，實際門牌仍須向台電確認。</span></div><div id="powerFeed" aria-live="polite"><div class="blank"><b>公告資料尚未同步</b>請使用下方官方查詢。</div></div><a class="small-btn external" target="_blank" rel="noopener noreferrer" href="https://service.taipower.com.tw/nds/ndsWeb/ndft112.aspx">台電停電查詢</a></div>
         </div>
         <div class="quickline"><span class="tiny" id="feedNote">試行版本：首次設定自動更新前，這裡不顯示即時狀態。</span><a class="small-btn" href="#services">查看更多生活服務 ↓</a></div>
       </div>
@@ -412,25 +455,125 @@ footer .copyright-notice p {font-size:15px;line-height:1.85;color:#415b5e;margin
         const previous=button.textContent;button.textContent='✓ 已複製';setTimeout(()=>button.textContent=previous,1600);
       }catch(_){window.prompt('請複製電話號碼：',number);}
     }));
-    const safeText=(v,max=900)=>String(v??'').slice(0,max),el=(tag,txt,cls)=>{const node=document.createElement(tag);node.textContent=safeText(txt);if(cls)node.className=cls;return node};
-    const humanDate=raw=>{if(!raw)return '';let v=String(raw).trim();return v.replace('T',' ').replace(/\+08:00$/,'').slice(0,16)};
-    function renderFeed(name,provider){const feed=document.getElementById(name+'Feed'),tag=document.getElementById(name+'Tag');
-      const ok=provider&&provider.status==='ok',records=Array.isArray(provider?.items)?provider.items:[];feed.replaceChildren();
-      tag.textContent=ok?'已讀取官方資料':provider?.status==='stale'?'資料更新失敗':'尚未同步';tag.className='tag'+(ok?' ok':' warn');
-      if(!ok){let b=el('div','', 'blank');b.appendChild(el('b',provider?.status==='stale'?'同步暫時失敗，請查官方網站':'尚未取得自動同步資料'));
-        b.appendChild(el('span','不能據此認定沒有停水或停電。'));feed.appendChild(b);return;}
-      if(!records.length){let b=el('div','', 'blank');b.appendChild(el('b','本次彙整未找到東區相關紀錄'));b.appendChild(el('span','不代表個別地址無事故；需要時請向主管單位查詢。'));feed.appendChild(b);return;}
-      records.slice(0,7).forEach(item=>{const box=el('article','','feed-detail');box.appendChild(el('strong',(name==='water'?(item.type||'停水／降壓'):'計畫性停電')+' · '+(item.area||'範圍請詳閱公告')));
-        const when=(name==='power')
-          ?(item.start?'第一次停電時間：'+safeText(item.start,90)+'　':'')+(item.end?'第二次停電時間：'+safeText(item.end,90):'')
-          :(item.start?'公告開始：'+humanDate(item.start)+'　':'')+(item.end?'預計恢復：'+humanDate(item.end):'');
-        const p=el('p',when);box.appendChild(p);
-        if(item.reason)box.appendChild(el('p','原因／內容：'+safeText(item.reason,150)));
-        const a=document.createElement('a');a.href=name==='water'?'https://web.water.gov.tw/wateroff/city/%E8%87%BA%E4%B8%AD%E5%B8%82/index.html':'https://service.taipower.com.tw/nds/ndsWeb/ndft112.aspx';a.target='_blank';a.rel='noopener noreferrer';a.textContent='前往官方確認街道範圍 ↗';box.appendChild(a);feed.appendChild(box);
-      });
+
+    const clean=v=>{
+      if(v===null||v===undefined)return '';
+      const t=String(v).trim();
+      return /^(null|none|undefined|n\/a|nan|無)$/i.test(t)?'':t;
+    };
+    const safeText=(v,max=900)=>clean(v).slice(0,max);
+    const el=(tag,txt,cls)=>{
+      const n=document.createElement(tag);n.textContent=safeText(txt);if(cls)n.className=cls;return n;
+    };
+    const place=v=>clean(v).replace(/^(?:臺中市|台中市)東區/,'').trim();
+    function shortTime(v){
+      const s=clean(v);
+      if(!s)return '';
+      const m=s.match(/^\d{4}[/-](\d{1,2})[/-](\d{1,2})\s+(\d{1,2}:\d{2})[~～](\d{1,2}:\d{2})/);
+      if(m)return Number(m[1])+'/'+Number(m[2])+' '+m[3]+'–'+m[4];
+      const n=s.match(/^\d{4}[/-](\d{1,2})[/-](\d{1,2})[ T](\d{1,2}:\d{2})/);
+      if(n)return Number(n[1])+'/'+Number(n[2])+' '+n[3];
+      return s.slice(0,65);
     }
+    const day=v=>{const m=clean(v).match(/^\d{4}[/-](\d{1,2})[/-](\d{1,2})/);return m?Number(m[1])+'/'+Number(m[2]):''};
+    function groupsForPower(items){
+      const groups=new Map();
+      items.forEach((it,i)=>{
+        const id=clean(it.id);
+        const key=[id||'no-id-'+i,clean(it.start),clean(it.end),clean(it.reason)].join('|');
+        if(!groups.has(key))groups.set(key,{id,start:clean(it.start),end:clean(it.end),reason:clean(it.reason),areas:[]});
+        const group=groups.get(key),a=place(it.area);
+        if(a&&!group.areas.includes(a))group.areas.push(a);
+      });
+      return [...groups.values()].sort((a,b)=>a.start.localeCompare(b.start));
+    }
+    function eventCard(item,source){
+      const n=el('article','','feed-event'),heading=el('div','','feed-event-heading');
+      const roads=source==='power'?item.areas:[place(item.area)].filter(Boolean);
+      const label=!roads.length?'影響範圍待確認':roads.length===1?roads[0]:roads.slice(0,2).join('、')+' 等 '+roads.length+' 處';
+      heading.appendChild(el('strong',label,'feed-event-place'));
+      const d=day(item.start);if(d)heading.appendChild(el('span',d,'feed-event-date'));
+      n.appendChild(heading);
+      const line=(label,value)=>{
+        if(!value)return;
+        const row=el('p','','feed-event-line');
+        row.appendChild(el('span',label,'event-label'));
+        row.appendChild(el('span',value,'event-value'));
+        n.appendChild(row);
+      };
+      if(source==='power'){
+        line('停電時段',shortTime(item.start));
+        line('第二時段',shortTime(item.end));
+      }else{
+        line('開始時間',shortTime(item.start));
+        line('預計恢復',shortTime(item.end));
+      }
+      if(clean(item.reason))n.appendChild(el('p','原因：'+clean(item.reason).slice(0,150),'feed-event-reason'));
+      if(roads.length>2){
+        const d=el('details','','feed-expand');
+        d.appendChild(el('summary','查看全部 '+roads.length+' 個路段'));
+        d.appendChild(el('p',roads.join('、')));n.appendChild(d);
+      }
+      return n;
+    }
+    function showLimited(feed,items,source){
+      items.slice(0,3).forEach(it=>feed.appendChild(eventCard(it,source)));
+      if(items.length>3){
+        const extra=el('details','','feed-more');
+        extra.appendChild(el('summary','查看其他 '+(items.length-3)+' 則公告'));
+        items.slice(3).forEach(it=>extra.appendChild(eventCard(it,source)));
+        feed.appendChild(extra);
+      }
+    }
+    let cachedPower=null;
+    function renderFeed(name,provider){
+      const feed=document.getElementById(name+'Feed'),tag=document.getElementById(name+'Tag');
+      const ok=provider&&provider.status==='ok',items=Array.isArray(provider?.items)?provider.items:[];
+      feed.replaceChildren();
+      tag.textContent=ok?'官方資料已同步':provider?.status==='stale'?'同步暫時失敗':'尚未同步';
+      tag.className='tag'+(ok?' ok':' warn');
+      if(!ok){
+        const b=el('div','','blank');
+        b.appendChild(el('b',provider?.status==='stale'?'資料更新失敗，請查官方網站':'尚未取得同步資料'));
+        b.appendChild(el('span','目前無法由本站判斷是否停水、停電。'));feed.appendChild(b);return;
+      }
+      if(!items.length){
+        feed.appendChild(el('p','本次資料未找到符合條件的東區公告；不代表任何地址都不會發生事故。','feed-intro'));return;
+      }
+      if(name==='water'){
+        const unknown=items.filter(it=>!place(it.area)),known=items.filter(it=>place(it.area));
+        if(unknown.length){
+          const box=el('div','','feed-warning');
+          box.appendChild(el('strong',unknown.length+' 筆停水／降壓資料沒有明確路段'));
+          box.appendChild(el('p','這些是東區相關紀錄，但無法據此判斷是否影響東勢里。請前往台水查詢實際街道範圍。'));
+          const detail=el('details','','feed-expand');
+          detail.appendChild(el('summary','查看公告時間（'+unknown.length+' 筆）'));
+          unknown.forEach(it=>detail.appendChild(el('div',[
+            clean(it.id)?'案號 '+safeText(it.id,25):'',
+            shortTime(it.start)?'開始 '+shortTime(it.start):'',
+            shortTime(it.end)?'預計恢復 '+shortTime(it.end):''
+          ].filter(Boolean).join('｜'),'feed-small-row')));
+          box.appendChild(detail);feed.appendChild(box);
+        }
+        if(known.length){
+          feed.appendChild(el('p','以下 '+known.length+' 筆已列出地點，仍請向官方確認門牌。','feed-intro'));
+          showLimited(feed,known,'water');
+        }
+        return;
+      }
+      const term=clean(document.getElementById('powerStreetFilter').value).toLowerCase();
+      const groups=groupsForPower(items);
+      const shown=groups.filter(g=>!term||g.areas.some(a=>a.toLowerCase().includes(term)));
+      const info=term?(shown.length?'找到 '+shown.length+' 組含「'+safeText(term,35)+'」的計畫性停電公告。':'未找到含「'+safeText(term,35)+'」的計畫性停電公告，仍請向台電確認。')
+        :'共 '+groups.length+' 組計畫性停電時段，已合併重複列出的道路。';
+      feed.appendChild(el('p',info,'feed-intro'));
+      showLimited(feed,shown,'power');
+    }
+    document.getElementById('powerStreetFilter').addEventListener('input',()=>{
+      if(cachedPower)renderFeed('power',cachedPower);
+    });
     fetch('./data/status.json?nocache='+Date.now(),{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('no feed');return r.json()}).then(data=>{
-      renderFeed('water',data.water);renderFeed('power',data.power);
+      cachedPower=data.power;renderFeed('water',data.water);renderFeed('power',data.power);
       if(data.generated_at)document.getElementById('updatedAt').textContent='最近同步檢查：'+humanDate(data.generated_at)+'（臺灣時間）';
       document.getElementById('feedNote').textContent='提示：自動彙整可能有時間差。臺中市東區公告不一定涵蓋東勢里，請核對街道門牌與官方最新資訊。';
     }).catch(()=>{renderFeed('water',null);renderFeed('power',null);});
