@@ -101,7 +101,7 @@ let visibleCount = 12;
 const pageSize = 12;
 
 function googleMapsDirectionsUrl(address) {
-  return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(address)}`;
+  return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(address)}&travelmode=driving&dir_action=navigate`;
 }
 
 function resourceAddress(r) {
