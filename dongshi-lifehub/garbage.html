@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#155e62">
+<meta name="author" content="張家瑜">
+<meta name="copyright" content="© 2026 張家瑜">
+<meta name="description" content="臺中市東區東勢里專用垃圾車清運時間、收運點路名搜尋與官方垃圾車即時動態入口。">
+<title>東勢里垃圾車時間與清運點｜東勢里生活通</title>
+<style>
+:root{--teal:#155e62;--ink:#183a3e;--muted:#456369;--line:#d5e4df;--cream:#f7f9f6;--mint:#e8f5ef;--warning:#fff5df}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:system-ui,-apple-system,"Noto Sans TC","Microsoft JhengHei",sans-serif;font-size:18px;line-height:1.75}
+a{color:var(--teal)}button,input,select{font:inherit}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #ecaf57;outline-offset:3px}
+.wrap{width:min(850px,calc(100% - 32px));margin:0 auto}
+header{background:#fff;border-bottom:1px solid var(--line)}
+header .wrap{min-height:75px;display:flex;align-items:center;justify-content:space-between;gap:15px}
+.brand{font-weight:900;color:var(--ink);text-decoration:none;font-size:21px}
+.home{font-size:16px;font-weight:800;text-decoration:none;border:1px solid #9fc7ba;border-radius:12px;padding:8px 14px;white-space:nowrap}
+.hero{background:linear-gradient(115deg,#145961,#227872);color:#fff}
+.hero .wrap{padding:34px 0 36px}
+.hero h1{font-size:clamp(32px,5.4vw,44px);line-height:1.3;margin:0 0 12px}
+.hero p{font-size:18px;color:#ebf8f4;max-width:720px;margin:0}
+main{padding:26px 0 48px}
+.box{background:#fff;border:1px solid var(--line);border-radius:20px;padding:23px 25px;margin-bottom:18px}
+.status-label{display:inline-flex;align-items:center;gap:7px;border-radius:100px;background:#edf6f2;color:#245e59;font-size:15px;padding:4px 12px;font-weight:800}
+h2{font-size:24px;line-height:1.45;margin:0 0 10px}
+.desc{font-size:16px;color:var(--muted);margin:6px 0 14px}
+.hint{padding:13px 16px;background:var(--warning);border:1px solid #edddb7;border-radius:13px;color:#684b22;font-size:16px;line-height:1.75;margin-top:14px}
+.filterbar{display:grid;grid-template-columns:2fr 1fr 1fr;gap:12px;margin-top:19px}
+label{display:block;color:#2e5458;font-size:16px;font-weight:850;margin-bottom:7px}
+input,select{width:100%;min-height:52px;border:1px solid #b7cec8;border-radius:11px;padding:10px 13px;background:#fff;color:#223d42;font-size:17px}
+input::placeholder{color:#5c7075}
+.results-header{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin:22px 0 13px}
+.results-header h2{margin:0}
+.result-count{color:#426369;font-size:16px}
+.card{background:#fff;border:1px solid var(--line);border-radius:17px;padding:19px 21px;margin:0 0 12px}
+.card-top{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.card h3{font-size:22px;line-height:1.45;margin:0;color:#183e42}
+.timepill{font-size:15px;font-weight:850;background:#e8f4f1;color:#145d60;padding:5px 12px;border-radius:100px}
+.schedule{padding:9px 0;border-bottom:1px dashed #dce8e3;display:grid;grid-template-columns:128px 1fr;gap:10px}
+.schedule:last-of-type{border-bottom:0}
+.schedule-label{color:#376166;font-size:16px;font-weight:800}
+.schedule-value{color:#253f43;font-size:17px}
+.meta{color:#5d7375;font-size:14px;margin:10px 0 12px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.action{background:#e8f4ef;color:#165b60;padding:9px 14px;border-radius:11px;text-decoration:none;font-size:16px;font-weight:800;min-height:46px;display:inline-flex;align-items:center}
+.action.outline{border:1px solid #aacbc3;background:#fff}
+.action:focus-visible,.action:hover{background:#d4eae1}
+.no-results{text-align:center;background:#fff;border:1px solid var(--line);border-radius:15px;padding:28px 20px;color:#4a6266}
+#more{width:100%;border:1px solid #a4c7c0;background:#eaf6f2;color:#145d62;font-size:18px;font-weight:900;padding:13px;border-radius:14px;margin-top:5px}
+#more[hidden]{display:none}
+.source{margin-top:20px;line-height:1.8}
+.source a{font-weight:800}
+footer{padding:30px 0;background:#eaf0ed;border-top:1px solid #cdded7}
+footer strong{font-size:23px;color:#18494d}
+footer p{font-size:15px;color:#4d666a;margin:8px 0}
+footer .owner{font-size:24px;color:#154a4f;font-weight:900}
+@media(max-width:680px){
+body{font-size:17px}
+header .wrap{min-height:68px}
+.brand{font-size:19px}
+.home{font-size:15px;padding:7px 9px}
+.hero .wrap{padding:27px 0}
+.hero p{font-size:17px}
+.box{padding:18px 16px}
+h2{font-size:22px}
+.filterbar{grid-template-columns:1fr 1fr;gap:12px}
+.filterbar .wide{grid-column:1/-1}
+.card{padding:17px 15px}
+.card h3{font-size:21px}
+.schedule{grid-template-columns:1fr;gap:1px;padding:10px 0}
+.schedule-label{font-size:15px}
+.schedule-value{font-size:16px}
+.actions .action{flex:1;justify-content:center;font-size:15px}
+.timepill{font-size:15px}
+}
+@media(max-width:340px){.filterbar{grid-template-columns:1fr}.filterbar .wide{grid-column:1}.actions{flex-direction:column}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><a class="brand" href="./">🏡 東勢里生活通</a><a class="home" href="./">← 回首頁</a></div></header>
+<section class="hero"><div class="wrap">
+  <h1>🚛 東勢里垃圾車</h1>
+  <p>這裡已經幫您鎖定「臺中市東區東勢里」，直接查清運點與表定時間，不必再從全市重新選擇。</p>
+</div></section>
+<main class="wrap">
+  <section class="box" aria-labelledby="lookupTitle">
+    <span id="sourceStatus" class="status-label">讀取清運班表中</span>
+    <h2 id="lookupTitle" style="margin-top:13px">查東勢里附近的垃圾車時間</h2>
+    <p class="desc" id="dataNote">清運點班表是預定時間，不等於垃圾車目前所在位置。</p>
+    <div class="filterbar">
+      <div class="wide"><label for="streetSearch">路名、巷弄或門牌</label><input id="streetSearch" type="search" placeholder="例如：進德路40巷、玉皇街" autocomplete="off"></div>
+      <div><label for="dayFilter">星期</label><select id="dayFilter">
+        <option value="">全週</option><option value="一">星期一</option><option value="二">星期二</option><option value="三">星期三</option><option value="四">星期四</option><option value="五">星期五</option><option value="六">星期六</option><option value="日">星期日</option>
+      </select></div>
+      <div><label for="typeFilter">清運類型</label><select id="typeFilter">
+        <option value="all">全部</option><option value="garbage">一般垃圾</option><option value="recycling">資源回收</option>
+      </select></div>
+    </div>
+    <p class="hint">提醒：清運點可能臨時調整，颱風、國定假日及垃圾車即時位置，請點「環保局即時動態」確認。本站不提供即時 GPS 追蹤。</p>
+  </section>
+  <section aria-labelledby="listTitle">
+    <div class="results-header"><h2 id="listTitle">東勢里清運點</h2><span id="resultCount" class="result-count">資料讀取中</span></div>
+    <div id="stops" aria-live="polite"><div class="no-results">正在讀取東勢里清運點……</div></div>
+    <button id="more" type="button" hidden>顯示更多清運點</button>
+  </section>
+  <section class="box source">
+    <h2>官方即時動態</h2>
+    <p class="desc">要看車輛 GPS 位置或實際預估抵達時間，請到「臺中垃圾清運大車隊」。官方系統需要再選「東區」，於關鍵字輸入「東勢里」或所在道路；目前未發現可直接預設里別的官方網址。</p>
+    <div class="actions">
+      <a class="action" href="https://cleaner.epb.taichung.gov.tw/" target="_blank" rel="noopener noreferrer">🚛 環保局即時動態 ↗</a>
+      <a class="action outline" href="https://data.gov.tw/dataset/84004" target="_blank" rel="noopener noreferrer">查看政府開放資料 ↗</a>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap">
+  <strong>東勢里生活通</strong>
+  <p class="owner">版權所有人：張家瑜</p>
+  <p>© 2026 張家瑜　版權所有。未經授權，請勿擅自修改、增刪、重新發布本站原創設計、程式或移除署名；政府開放資料權利仍依原授權規範辦理。</p>
+  <p>本網站不是臺中市政府或環境保護局官方網站。表定清運資訊以環保局最新資料為準。</p>
+</div></footer>
+<script>
+(()=>{
+'use strict';
+const $=id=>document.getElementById(id);
+const official='https://cleaner.epb.taichung.gov.tw/';
+let all=[],showAll=false;
+const days=['一','二','三','四','五','六','日'];
+const clean=v=>v==null?'':String(v).trim();
+const el=(tag,text='',cls='')=>{const e=document.createElement(tag);e.textContent=text;if(cls)e.className=cls;return e;};
+const norm=s=>clean(s).toLowerCase().replace(/\s+/g,'').replace(/台/g,'臺');
+function dayText(obj,day){
+ if(!obj||typeof obj!=='object')return '';
+ const entries=days.filter(d=>clean(obj[d])&&(!day||d===day)).map(d=>[d,clean(obj[d])]);
+ const byTime=new Map();
+ for(const [d,time] of entries){if(!byTime.has(time))byTime.set(time,[]);byTime.get(time).push(d);}
+ return [...byTime].map(([time,ds])=>'週'+ds.join('、')+' '+time).join('；');
+}
+function passes(stop){
+ const query=norm($('streetSearch').value),day=$('dayFilter').value,kind=$('typeFilter').value;
+ if(query&&!norm(stop.address+' '+stop.car).includes(query))return false;
+ const includesDay=map=>!day||Boolean(map?.[day]);
+ if(kind==='garbage')return Object.keys(stop.garbage||{}).length>0&&includesDay(stop.garbage);
+ if(kind==='recycling')return Object.keys(stop.recycling||{}).length>0&&includesDay(stop.recycling);
+ return (Object.keys(stop.garbage||{}).length>0&&includesDay(stop.garbage))||
+        (Object.keys(stop.recycling||{}).length>0&&includesDay(stop.recycling));
+}
+function createStop(stop){
+ const card=el('article','','card');
+ const top=el('div','','card-top');
+ top.appendChild(el('h3','📍 '+clean(stop.address)));
+ const targetDay=$('dayFilter').value;
+ const times=[...Object.values(stop.garbage||{}),...Object.values(stop.recycling||{})].filter(Boolean).sort();
+ if(times.length)top.appendChild(el('span','表定 '+times[0],'timepill'));
+ card.appendChild(top);
+ function addSchedule(label,map,cls){
+   const val=dayText(map,targetDay);if(!val)return;
+   const row=el('div','','schedule');
+   row.appendChild(el('span',label,'schedule-label'));
+   row.appendChild(el('span',val,'schedule-value'));card.appendChild(row);
+ }
+ const k=$('typeFilter').value;
+ if(k!=='recycling')addSchedule('🗑️ 一般垃圾',stop.garbage);
+ if(k!=='garbage')addSchedule('♻️ 資源回收',stop.recycling);
+ if(clean(stop.car))card.appendChild(el('p','車牌：'+stop.car,'meta'));
+ const actions=el('div','','actions');
+ const address='臺中市東區'+clean(stop.address);
+ const nav=document.createElement('a');
+ nav.href='https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(address);
+ nav.target='_blank';nav.rel='noopener noreferrer';nav.className='action';nav.textContent='📍 導航到這個清運點 ↗';actions.appendChild(nav);
+ const monitor=document.createElement('a');
+ monitor.href=official;monitor.target='_blank';monitor.rel='noopener noreferrer';monitor.className='action outline';monitor.textContent='查看垃圾車動態 ↗';actions.appendChild(monitor);
+ card.appendChild(actions);
+ return card;
+}
+function render(){
+ const q=clean($('streetSearch').value),selected=all.filter(passes).sort((a,b)=>{
+  const earliest=s=>[...Object.values(s.garbage||{}),...Object.values(s.recycling||{})].filter(Boolean).sort()[0]||'99:99';
+  return earliest(a).localeCompare(earliest(b))||a.address.localeCompare(b.address,'zh-Hant');
+ });
+ const visible=showAll||q?selected:selected.slice(0,8),list=$('stops');
+ list.replaceChildren();
+ $('resultCount').textContent=selected.length+' 個符合的清運點';
+ if(!selected.length){
+   list.appendChild(el('div','沒有符合的清運點，請換個路名或清運日期，必要時到官方網站查詢。','no-results'));
+ }else{
+   visible.forEach(stop=>list.appendChild(createStop(stop)));
+ }
+ $('more').hidden=showAll||q||selected.length<=8;
+ $('more').textContent='顯示其餘 '+(selected.length-8)+' 個清運點';
+}
+['streetSearch','dayFilter','typeFilter'].forEach(id=>$(id).addEventListener('input',()=>{showAll=false;render();}));
+$('more').addEventListener('click',()=>{showAll=true;render();});
+fetch('./data/garbage.json?nocache='+Date.now(),{cache:'no-store'})
+.then(r=>{if(!r.ok)throw Error('Timetable missing');return r.json();})
+.then(data=>{
+ all=Array.isArray(data.stops)?data.stops.filter(s=>s&&s.address):[];
+ const officialNow=data.source==='official';
+ $('sourceStatus').textContent=officialNow?'已同步環保局清運班表':'東勢里參考清運班表';
+ $('dataNote').textContent=(officialNow?'官方開放資料更新：'+clean(data.updated_at).replace('T',' ').slice(0,16):
+   '目前為公開清運點參考資料，尚待官方資料自動同步。')+'｜表定時間並非即時到站，臨時異動請查環保局。';
+ render();
+})
+.catch(()=>{
+ $('sourceStatus').textContent='暫時無法讀取班表';
+ $('dataNote').textContent='請先使用下方環保局即時查詢。';
+ $('stops').replaceChildren(el('div','班表暫時無法載入，請改用環保局官方查詢。','no-results'));
+ $('resultCount').textContent='無法讀取';
+});
+})();
+</script>
+</body>
+</html>
