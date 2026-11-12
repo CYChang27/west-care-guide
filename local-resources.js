@@ -1357,4 +1357,100 @@ const localResources = [
     "phone": "0908-715-917",
     "phoneHref": "tel:0908715917"
   }
+,
+  {
+    "id": "local-096",
+    "category": "社會福利",
+    "topics": [
+      "welfare",
+      "start"
+    ],
+    "title": "西區家庭福利服務中心",
+    "description": "提供家庭支持、福利諮詢、脆弱家庭與生活困難等服務，可先電話說明目前最需要協助的問題。",
+    "address": "臺中市西區大忠里五權五街285號",
+    "source": "中西區資源盤點更新檔",
+    "phone": "04-23755055",
+    "phoneHref": "tel:0423755055"
+  },
+  {
+    "id": "local-097",
+    "category": "社會福利",
+    "topics": [
+      "welfare"
+    ],
+    "title": "緊急生活扶助",
+    "description": "遭遇家庭重大變故或短期生活困難時，可洽臺中市政府社會局婦女福利及性別平等科社工師。",
+    "source": "中西區資源盤點更新檔",
+    "phone": "04-22289111 分機37617",
+    "phoneHref": "tel:0422289111"
+  },
+  {
+    "id": "local-098",
+    "category": "社會福利",
+    "topics": [
+      "welfare"
+    ],
+    "title": "中區功能型新住民社區服務據點",
+    "description": "提供新住民家庭在地關懷、生活適應、福利諮詢與支持服務。",
+    "address": "臺中市中區中華里臺灣大道一段546號2樓",
+    "source": "中西區資源盤點更新檔",
+    "phone": "04-22295461",
+    "phoneHref": "tel:0422295461"
+  },
+  {
+    "id": "local-099",
+    "category": "社會福利",
+    "topics": [
+      "welfare"
+    ],
+    "title": "西區功能型新住民社區服務據點（土庫）",
+    "description": "提供新住民家庭在地關懷、生活適應、福利諮詢與支持服務。",
+    "address": "臺中市西區土庫里五權西五街92號",
+    "source": "中西區資源盤點更新檔",
+    "phone": "0922-169268",
+    "phoneHref": "tel:0922169268"
+  },
+  {
+    "id": "local-100",
+    "category": "社會福利",
+    "topics": [
+      "welfare"
+    ],
+    "title": "西區功能型新住民社區服務據點（藍興）",
+    "description": "提供新住民家庭在地關懷、生活適應、福利諮詢與支持服務。",
+    "address": "臺中市西區藍興里樂群街272號",
+    "source": "中西區資源盤點更新檔",
+    "phone": "04-23761919",
+    "phoneHref": "tel:0423761919"
+  },
+  {
+    "id": "local-101",
+    "category": "社會福利",
+    "topics": [
+      "welfare"
+    ],
+    "title": "臺中市紅十字會食物銀行",
+    "description": "提供食物與物資支持，申請方式與資格請先電話洽詢。",
+    "address": "臺中市中區綠川里綠川西街145號",
+    "source": "中西區資源盤點更新檔",
+    "phone": "04-22222411 分機213",
+    "phoneHref": "tel:0422222411",
+    "link": "https://societymap.taichung.gov.tw/TccgSociety/#/search",
+    "action": "查詢社福資源"
+  },
+  {
+    "id": "local-102",
+    "category": "社會福利",
+    "topics": [
+      "welfare"
+    ],
+    "title": "臺中市春暉慈善會食物銀行",
+    "description": "提供食物與物資支持，申請方式與資格請先電話洽詢。",
+    "address": "臺中市西區後龍里民權路308之1號",
+    "source": "中西區資源盤點更新檔",
+    "phone": "04-23027158",
+    "phoneHref": "tel:0423027158",
+    "link": "https://societymap.taichung.gov.tw/TccgSociety/#/search",
+    "action": "查詢社福資源"
+  }
 ];
