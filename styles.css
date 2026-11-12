@@ -76,7 +76,7 @@ h1 span { color: var(--green); }
 .facts div { padding: 22px 26px; border-right: 1px solid rgba(255,255,255,.12); }
 .facts div:last-child { border: 0; }
 .facts strong, .facts span { display: block; }
-.facts strong { color: #ffe0a7; font-size: clamp(23px, 2.7vw, 34px); }
+.facts strong { color: #ffe0a7; font-size: clamp(21px, 2.3vw, 30px); }
 .facts span { color: #d8e3e4; font-size: 13px; }
 
 .guide-section, .resources-section, .about-section { max-width: 1220px; margin: 0 auto; padding: 0 24px 110px; }
@@ -86,12 +86,13 @@ h1 span { color: var(--green); }
 .section-heading h2, .about-section h2 { margin: 0 0 10px; font-family: "Noto Serif TC", "Songti TC", serif; font-size: clamp(32px, 4vw, 51px); line-height: 1.22; }
 .section-heading > p:last-child { color: var(--muted); font-size: 16px; }
 
-.scenario-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+.scenario-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; }
 .scenario { --tone: var(--green); --soft: #e8f4ee; display: grid; grid-template-columns: 58px 1fr 30px; gap: 15px; align-items: center; min-height: 128px; padding: 20px; text-align: left; background: var(--soft); border: 2px solid transparent; border-radius: 22px; cursor: pointer; transition: transform .18s, box-shadow .18s, border-color .18s; }
 .scenario[data-topic="care"] { --tone: var(--blue); --soft: #e9f2f8; }
 .scenario[data-topic="rest"] { --tone: var(--coral); --soft: #f9ebe7; }
 .scenario[data-topic="safety"] { --tone: var(--amber); --soft: #f9f0df; }
 .scenario[data-topic="migrant"] { --tone: var(--purple); --soft: #f0ecf6; }
+.scenario[data-topic="welfare"] { --tone: #4b7298; --soft: #edf3f9; }
 .scenario[data-topic="health"] { --tone: #318a78; --soft: #e8f4f0; }
 .scenario:hover { transform: translateY(-3px); border-color: var(--tone); box-shadow: 0 13px 28px rgba(23,51,58,.09); }
 .scenario.active { color: #fff; background: var(--tone); border-color: var(--tone); box-shadow: 0 14px 30px rgba(23,51,58,.14); }
@@ -108,6 +109,7 @@ h1 span { color: var(--green); }
 .result-panel[data-topic="rest"] { --result-tone: var(--coral); border-color: #efc7bf; }
 .result-panel[data-topic="safety"] { --result-tone: var(--amber); border-color: #ead19f; }
 .result-panel[data-topic="migrant"] { --result-tone: var(--purple); border-color: #d3c8e6; }
+.result-panel[data-topic="welfare"] { --result-tone: #4b7298; border-color: #c6d7e7; }
 .result-panel[data-topic="health"] { --result-tone: #318a78; border-color: #badbd3; }
 .result-label { position: absolute; left: 28px; top: -16px; padding: 6px 15px; color: #fff; background: var(--result-tone); border-radius: 999px; font-size: 13px; font-weight: 900; }
 .result-kicker { margin: 0; color: var(--result-tone); font-size: 13px; font-weight: 900; letter-spacing: .08em; }
@@ -144,6 +146,7 @@ h1 span { color: var(--green); }
 .resource-card[data-category="失智支持"] { --card-tone: var(--coral); }
 .resource-card[data-category="社區據點"] { --card-tone: #4e927a; }
 .resource-card[data-category="安全"] { --card-tone: #b8463a; }
+.resource-card[data-category="社會福利"] { --card-tone: #4b7298; }
 .resource-card[data-category="長照"], .resource-card[data-category="居家長照"], .resource-card[data-category="社區長照"] { --card-tone: var(--blue); }
 .resource-card .tag { align-self: flex-start; margin-top: 2px; padding: 5px 9px; color: var(--card-tone); background: #eef4f1; border-radius: 8px; font-size: 12px; font-weight: 900; }
 .resource-card h3 { margin: 16px 0 8px; font-size: 20px; line-height: 1.35; }
