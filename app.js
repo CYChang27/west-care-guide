@@ -48,7 +48,18 @@ const baseResources = [
     id: "mental-1925", category: "照顧者", topics: ["rest", "health"],
     title: "1925 安心專線", description: "照顧壓力造成明顯情緒困擾、失眠或無力感時，可先撥打24小時心理支持專線。",
     phone: "1925", phoneHref: "tel:1925", link: "https://www.mohw.gov.tw/cp-16-48244-1.html", action: "查看專線說明"
+  },
+  {
+    id: "welfare-portal", category: "社會福利", topics: ["start", "welfare"],
+    title: "臺中市社福便利站", description: "可依身分與生活困難查詢社會救助、急難救助、老人、家庭、婦女及其他福利服務。",
+    link: "https://i-welfare.taichung.gov.tw/people/index", action: "查詢可用福利"
+  },
+  {
+    id: "elder-welfare", category: "社會福利", topics: ["welfare"],
+    title: "臺中市老人福利服務", description: "集中查詢老人福利、生活支持、敬老優待、住宅安全及其他高齡服務資訊。",
+    link: "https://www.society.taichung.gov.tw/13783/Lpsimplelist", action: "查看老人福利"
   }
+
 ];
 
 const resources = [...baseResources, ...localResources];
@@ -78,6 +89,11 @@ const scenarios = {
     title: "依問題選通譯、照護學習或權益諮詢。",
     description: "外籍看護遇到語言、照護技巧或工作生活問題時，可直接使用官方多國語資源。",
     steps: ["語言溝通或工作生活問題可先撥1955。", "照護技巧可使用勞動力發展署多國語教材。", "如長者照顧安排需調整，家屬仍應聯絡1966或衛生所討論服務。"]
+  },
+  welfare: {
+    title: "先確認最急的生活困難，再找到適合的福利窗口。",
+    description: "經濟、物資、家庭、新住民或老人福利需求，可從官方查詢及在地服務中心開始。",
+    steps: ["不確定符合哪項福利時，先使用臺中市社福便利站依身分與需求查詢。", "遇到急難生活、家庭照顧或經濟困難，可聯絡西區家庭福利服務中心或社會局。", "需要食物、物資或新住民支持時，選擇鄰近單位並先電話確認服務方式。"]
   },
   health: {
     title: "新的健康變化，需要被醫療端知道。",
