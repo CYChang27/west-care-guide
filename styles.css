@@ -163,7 +163,8 @@ h1 span { color: var(--green); }
 .resource-address:focus-visible { outline: 3px solid rgba(25,112,95,.2); outline-offset: 2px; }
 .resource-address-pin { color: var(--green); font-size: 18px; font-weight: 900; }
 .resource-address-text { min-width: 0; color: #425b60; font-size: 13px; line-height: 1.45; }
-.resource-address-action { padding: 5px 8px; color: #fff; background: var(--green); border-radius: 999px; font-size: 11px; font-weight: 900; white-space: nowrap; }
+.resource-address-action { padding: 6px 11px; color: #fff; background: #c4472f; border: 1px solid #a93622; border-radius: 999px; box-shadow: 0 4px 10px rgba(196,71,47,.28); font-size: 12px; font-weight: 900; letter-spacing: .04em; white-space: nowrap; transition: background .18s, transform .18s, box-shadow .18s; }
+.resource-address:hover .resource-address-action { background: #a93622; box-shadow: 0 6px 13px rgba(169,54,34,.32); transform: translateY(-1px); }
 .mini-resource .resource-address { margin: 9px 0 10px; padding: 8px 9px; }
 .mini-resource .resource-address span { display: inline; margin: 0; }
 .resource-card .resource-address { margin-top: -4px; }
