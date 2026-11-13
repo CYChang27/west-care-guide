@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-11-13T14:46:59+08:00",
+  "generated_at": "2026-11-14T01:13:48+08:00",
   "water": {
     "status": "ok",
-    "last_success": "2026-11-13T14:47:03+08:00",
+    "last_success": "2026-11-14T01:13:52+08:00",
     "items": []
   },
   "power": {
     "status": "ok",
-    "last_success": "2026-11-13T14:47:04+08:00",
+    "last_success": "2026-11-14T01:13:53+08:00",
     "items": [
       {
         "id": "H35801",
