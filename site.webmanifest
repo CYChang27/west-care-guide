@@ -1,0 +1,25 @@
+{
+  "name": "中西區照顧導航",
+  "short_name": "中西區照顧",
+  "description": "依生活情境查找中西區高齡家庭照顧資源",
+  "id": "/west-care-guide/",
+  "start_url": "/west-care-guide/",
+  "scope": "/west-care-guide/",
+  "display": "standalone",
+  "background_color": "#f7f2e8",
+  "theme_color": "#19705f",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
