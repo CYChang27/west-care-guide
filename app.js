@@ -170,9 +170,7 @@ function renderResources() {
 }
 
 document.querySelectorAll('.scenario').forEach(button => button.addEventListener('click', () => {
-  document.querySelectorAll('.scenario').forEach(b => b.classList.remove('active'));
-  button.classList.add('active');
-  showScenario(button.dataset.topic);
+  window.location.href = `result.html?topic=${encodeURIComponent(button.dataset.topic)}`;
 }));
 document.querySelectorAll('.filter').forEach(button => button.addEventListener('click', () => {
   document.querySelectorAll('.filter').forEach(b => b.classList.remove('active'));
@@ -181,14 +179,21 @@ document.querySelectorAll('.filter').forEach(button => button.addEventListener('
   visibleCount = pageSize;
   renderResources();
 }));
-search.addEventListener('input', () => {
-  visibleCount = pageSize;
+if (search && loadMore && grid) {
+  search.addEventListener('input', () => {
+    visibleCount = pageSize;
+    renderResources();
+  });
+  loadMore.addEventListener('click', () => {
+    visibleCount += pageSize;
+    renderResources();
+  });
   renderResources();
-});
-loadMore.addEventListener('click', () => {
-  visibleCount += pageSize;
-  renderResources();
-});
+}
 
-showScenario('start');
-renderResources();
+if (resultPanel) {
+  const requestedTopic = new URLSearchParams(window.location.search).get('topic');
+  const topic = Object.prototype.hasOwnProperty.call(scenarios, requestedTopic) ? requestedTopic : 'start';
+  showScenario(topic);
+  document.title = `${scenarios[topic].title}｜中西區照顧導航`;
+}
