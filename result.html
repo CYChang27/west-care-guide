@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="中西區照顧導航情境查詢結果與可聯絡資源。" />
+  <title>查詢結果｜中西區照顧導航</title>
+  <link rel="stylesheet" href="styles.css?v=20261118-1" />
+</head>
+<body class="result-page-body">
+  <a class="skip-link" href="#main">跳到查詢結果</a>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="返回中西區照顧導航首頁">
+      <span class="brand-mark" aria-hidden="true">中西</span>
+      <span><strong>中西區照顧導航</strong><small>高齡家庭生活資源查詢</small></span>
+    </a>
+    <nav aria-label="結果頁選單">
+      <a href="index.html#guide">重新選擇情境</a>
+      <a href="index.html#resources">搜尋全部資源</a>
+    </nav>
+  </header>
+
+  <main id="main" class="result-page-main">
+    <a class="result-back" href="index.html#guide"><span aria-hidden="true">←</span> 返回情境選擇</a>
+    <section class="result-page-intro">
+      <p class="eyebrow">情境查詢結果</p>
+      <h1>先看現在可以怎麼做</h1>
+      <p>以下整理建議步驟與可直接聯絡的單位。</p>
+    </section>
+
+    <section class="result-panel" id="result-panel" data-topic="start" aria-live="polite">
+      <div class="result-label">你的查詢結果</div>
+      <div class="result-copy">
+        <p class="result-kicker">建議的第一步</p>
+        <h3 id="result-title"></h3>
+        <p id="result-description"></p>
+        <ol id="result-steps"></ol>
+      </div>
+      <div>
+        <p class="result-kicker">可以直接聯絡</p>
+        <div id="result-resources" class="result-resources"></div>
+      </div>
+    </section>
+
+    <div class="result-page-actions">
+      <a class="button secondary" href="index.html#guide"><span>返回情境選擇</span><b aria-hidden="true">←</b></a>
+    </div>
+  </main>
+
+  <footer>
+    <div><strong>中西區照顧導航</strong><p>第17屆金所獎計畫互動網站試作版</p></div>
+    <div><p>內容最後核對：115年11月</p><p>服務資格與名冊可能調整，申請時請以主管機關最新公告為準。</p></div>
+  </footer>
+  <script src="local-resources.js?v=20261112-4"></script>
+  <script src="app.js?v=20261118-1"></script>
+</body>
+</html>
