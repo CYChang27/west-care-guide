@@ -20,8 +20,9 @@ const baseResources = [
     link: "https://www.health.taichung.gov.tw/1655489/post", action: "查看最新據點"
   },
   {
-    id: "red-cross", category: "照顧者", topics: ["rest"],
-    title: "西區家庭照顧者服務窗口", description: "西區由臺中市家庭照顧者支持性服務單位承接。聯絡前可先準備目前照顧安排與最希望改善的問題。",
+    id: "red-cross", category: "照顧者", district: "中區", topics: ["rest"],
+    title: "中西區家庭照顧者服務窗口", description: "中西區家庭照顧者支持服務由臺中市紅十字會承接。聯絡前可先準備目前照顧安排與最希望改善的問題。",
+    address: "臺中市中區綠川西街145號7樓",
     phone: "04-2222-2411 分機436", phoneHref: "tel:0422222411", link: "https://www.health.taichung.gov.tw/1655489/post", action: "核對最新名冊"
   },
   {
@@ -113,6 +114,7 @@ const noResults = document.querySelector('#no-results');
 const resourceCount = document.querySelector('#resource-count');
 const loadMore = document.querySelector('#load-more');
 let activeFilter = 'all';
+let activeDistrict = 'all';
 let visibleCount = 12;
 const pageSize = 12;
 
@@ -142,7 +144,16 @@ function showScenario(topic) {
   resultTitle.textContent = item.title;
   resultDescription.textContent = item.description;
   resultSteps.innerHTML = item.steps.map(step => `<li>${step}</li>`).join('');
-  resultResources.innerHTML = resources.filter(r => r.topics.includes(topic)).slice(0,3).map(r => `
+  const preferredTitles = {
+    health: ["臺中市中西區衛生所", "衛生福利部臺中醫院", "澄清綜合醫院平等院區"]
+  };
+  const preferred = preferredTitles[topic] || [];
+  const selected = resources.filter(r => r.topics.includes(topic)).sort((a, b) => {
+    const ai = preferred.indexOf(a.title);
+    const bi = preferred.indexOf(b.title);
+    return (ai === -1 ? 999 : ai) - (bi === -1 ? 999 : bi);
+  }).slice(0,3);
+  resultResources.innerHTML = selected.map(r => `
     <article class="mini-resource"><strong>${r.title}</strong><span>${r.description}</span>${resourceAddress(r)}${resourceActions(r)}</article>
   `).join('');
 }
@@ -151,13 +162,15 @@ function renderResources() {
   const q = search.value.trim().toLowerCase();
   const filtered = resources.filter(r => {
     const matchesFilter = activeFilter === 'all' || r.category === activeFilter;
-    const haystack = `${r.title} ${r.description} ${r.category} ${r.address || ''}`.toLowerCase();
-    return matchesFilter && (!q || haystack.includes(q));
+    const district = r.district || '跨區服務';
+    const matchesDistrict = activeDistrict === 'all' || district === activeDistrict;
+    const haystack = `${r.title} ${r.description} ${r.category} ${district} ${r.address || ''}`.toLowerCase();
+    return matchesFilter && matchesDistrict && (!q || haystack.includes(q));
   });
   const visible = filtered.slice(0, visibleCount);
   grid.innerHTML = visible.map(r => `
     <article class="resource-card ${r.id.startsWith('local-') ? '' : 'is-official'}" data-category="${r.category}">
-      <span class="tag">${r.category}</span>
+      <div class="card-tags"><span class="tag">${r.category}</span><span class="district-tag">${r.district || '跨區服務'}</span></div>
       <h3>${r.title}</h3>
       <p>${r.description}</p>
       ${resourceAddress(r)}
@@ -176,6 +189,13 @@ document.querySelectorAll('.filter').forEach(button => button.addEventListener('
   document.querySelectorAll('.filter').forEach(b => b.classList.remove('active'));
   button.classList.add('active');
   activeFilter = button.dataset.filter;
+  visibleCount = pageSize;
+  renderResources();
+}));
+document.querySelectorAll('.district-filter').forEach(button => button.addEventListener('click', () => {
+  document.querySelectorAll('.district-filter').forEach(b => b.classList.remove('active'));
+  button.classList.add('active');
+  activeDistrict = button.dataset.district;
   visibleCount = pageSize;
   renderResources();
 }));
