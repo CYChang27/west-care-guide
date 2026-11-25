@@ -118,13 +118,15 @@ let activeDistrict = 'all';
 let visibleCount = 12;
 const pageSize = 12;
 
-function googleMapsDirectionsUrl(address) {
-  return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(address)}&travelmode=driving&dir_action=navigate`;
+function googleMapsDirectionsUrl(resource) {
+  const target = resource.mapAddress || resource.address;
+  const params = `api=1&destination=${encodeURIComponent(target)}`;
+  return `https://www.google.com/maps/dir/?${params}${resource.mapAddress ? '' : '&travelmode=driving&dir_action=navigate'}`;
 }
 
 function resourceAddress(r) {
   if (!r.address) return '';
-  const url = googleMapsDirectionsUrl(r.address);
+  const url = googleMapsDirectionsUrl(r);
   return `<a class="resource-address" href="${url}" target="_blank" rel="noopener noreferrer" aria-label="使用 Google 地圖導航到 ${r.title}">
     <span class="resource-address-pin" aria-hidden="true">⌖</span>
     <span class="resource-address-text">${r.address}</span>

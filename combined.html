@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#19705f">
+  <meta name="description" content="同時選擇中西區家庭遇到的照顧困難，查看可以一起處理的建議和聯絡窗口。">
+  <title>同時有幾件照顧困難｜中西區照顧導航</title>
+  <link rel="icon" href="favicon-32.png">
+  <link rel="stylesheet" href="styles.css?v=20261125-2">
+  <script src="reading.js?v=20261125-2" defer></script>
+  <script src="combined.js?v=20261125-2" defer></script>
+</head>
+<body class="result-page-body">
+  <a class="skip-link" href="#main">跳到主要內容</a>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="返回中西區照顧導航首頁">
+      <span class="brand-mark" aria-hidden="true">中西</span>
+      <span><strong>中西區照顧導航</strong><small>高齡家庭生活資源查詢</small></span>
+    </a>
+    <nav aria-label="主要選單">
+      <a href="index.html#guide">情境選擇</a>
+      <a href="index.html#resources">搜尋全部資源</a>
+    </nav>
+  </header>
+  <main class="result-page-main" id="main">
+    <a class="result-back" href="index.html#guide">返回情境選擇</a>
+    <section class="bathing-guide" aria-labelledby="combined-heading">
+      <p class="eyebrow">照顧情境複選</p>
+      <h1 id="combined-heading">同時有幾件照顧困難</h1>
+      <p class="urgent-note">現在需要緊急救護請撥 <a href="tel:119">119</a>；長者目前走失請撥 <a href="tel:110">110</a>。</p>
+      <form class="bathing-card combined-form" id="combined-form">
+        <fieldset>
+          <legend>家裡目前遇到什麼困難？</legend>
+          <p>勾選兩項以上。同一個窗口能一起處理的事，會放在同一張建議卡。</p>
+          <div class="combined-options">
+            <label><input name="need" value="care" type="checkbox"> <span>洗澡、備餐等日常照顧需要幫忙</span></label>
+            <label><input name="need" value="rest" type="checkbox"> <span>照顧者需要休息或替手</span></label>
+            <label><input name="need" value="health" type="checkbox"> <span>健康、用藥或就醫遇到問題</span></label>
+            <label><input name="need" value="safety" type="checkbox"> <span>擔心跌倒、外出或居家安全</span></label>
+            <label><input name="need" value="welfare" type="checkbox"> <span>需要社福補助或生活物資</span></label>
+            <label><input name="need" value="migrant" type="checkbox"> <span>外籍看護需要通譯或照護協助</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="combined-status" id="combined-status" hidden>
+          <legend>長輩目前有使用長照服務嗎？</legend>
+          <div class="combined-options">
+            <label><input name="care-status" value="existing" type="radio"> <span>有，目前有使用</span></label>
+            <label><input name="care-status" value="new" type="radio"> <span>沒有，目前沒使用</span></label>
+            <label><input name="care-status" value="unknown" type="radio" checked> <span>不確定，或不知道怎麼聯絡個管員</span></label>
+          </div>
+        </fieldset>
+        <p class="combined-error" id="combined-error" role="alert" hidden>請至少選兩項。如果現在只有一項，可以返回情境選擇。</p>
+        <button class="bathing-action" type="submit">查看照顧建議</button>
+      </form>
+      <div class="combined-results" id="combined-results" hidden>
+        <h2 id="combined-results-title" tabindex="-1">這幾件事可以這樣處理</h2>
+        <div id="combined-cards"></div>
+        <button class="bathing-help combined-edit" id="combined-edit" type="button">修改我選的情境</button>
+      </div>
+    </section>
+  </main>
+  <footer><div><strong>中西區照顧導航</strong><p>服務資格與安排由承接單位確認。</p></div></footer>
+</body>
+</html>

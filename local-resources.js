@@ -1707,9 +1707,10 @@ const localResources = [
       "rest",
       "health"
     ],
-    "title": "人文傳習書院治療心理所",
+    "title": "人文傳習書院心理治療所",
     "description": "立案心理治療所，可洽詢心理專業服務。",
     "address": "臺中市西區中美街41巷3號1樓",
+    "mapAddress": "臺中市西區中美街41巷3號",
     "source": "中西區資源統整更新檔",
     "phone": "04-23751966",
     "phoneHref": "tel:0423751966"
@@ -1725,6 +1726,7 @@ const localResources = [
     "title": "如穎心理成長中心心理治療所",
     "description": "立案心理治療所，可洽詢心理專業服務。",
     "address": "臺中市中區柳川里柳川東路三段5號5樓之1",
+    "mapAddress": "臺中市中區柳川東路三段5號",
     "source": "中西區資源統整更新檔",
     "phone": "04-22282220",
     "phoneHref": "tel:0422282220"
@@ -1797,9 +1799,10 @@ const localResources = [
       "rest",
       "health"
     ],
-    "title": "拾月拾日審計心理諮商所",
+    "title": "拾月拾日審計心理治療所",
     "description": "立案心理治療所，可洽詢心理專業服務。",
     "address": "臺中市西區昇平里昇平街35號2樓",
+    "mapAddress": "臺中市西區昇平街35號",
     "source": "中西區資源統整更新檔",
     "phone": "0919-591-010",
     "phoneHref": "tel:0919591010"
@@ -1827,9 +1830,10 @@ const localResources = [
       "rest",
       "health"
     ],
-    "title": "颱風眼HELP諮詢心理諮商所",
+    "title": "颱風眼H.E.L.P.心理諮商所",
     "description": "立案心理諮商所，可洽詢心理專業服務。",
     "address": "臺中市西區忠勤街139號",
+    "mapAddress": "臺中市西區忠勤街139號",
     "source": "中西區資源統整更新檔",
     "phone": "04-23724900",
     "phoneHref": "tel:0423724900"
@@ -1845,6 +1849,7 @@ const localResources = [
     "title": "知心心理諮商所",
     "description": "立案心理諮商所，可洽詢心理專業服務。",
     "address": "臺中市西區公益路367號4樓-2",
+    "mapAddress": "臺中市西區公益路367號",
     "source": "中西區資源統整更新檔",
     "phone": "0966-216656",
     "phoneHref": "tel:0966216656"
