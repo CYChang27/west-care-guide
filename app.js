@@ -182,7 +182,7 @@ function renderResources() {
   loadMore.hidden = visible.length >= filtered.length;
 }
 
-document.querySelectorAll('.scenario').forEach(button => button.addEventListener('click', () => {
+document.querySelectorAll('button.scenario').forEach(button => button.addEventListener('click', () => {
   window.location.href = `result.html?topic=${encodeURIComponent(button.dataset.topic)}`;
 }));
 document.querySelectorAll('.filter').forEach(button => button.addEventListener('click', () => {
@@ -211,9 +211,36 @@ if (search && loadMore && grid) {
   renderResources();
 }
 
-if (resultPanel) {
-  const requestedTopic = new URLSearchParams(window.location.search).get('topic');
+function showBathingGuide() {
+  const guide = document.querySelector('#bathing-guide');
+  const sections = [...guide.querySelectorAll('[data-bathing-state]')];
+  const restart = document.querySelector('#bathing-restart');
+  document.querySelector('#result-intro').hidden = true;
+  resultPanel.hidden = true;
+  guide.hidden = false;
+  document.title = '長輩洗澡需要人幫｜中西區照顧導航';
+
+  function renderStep(moveFocus) {
+    const answer = window.location.hash.slice(1);
+    const current = sections.find(section => section.dataset.bathingState === answer) || sections[0];
+    sections.forEach(section => { section.hidden = section !== current; });
+    restart.hidden = current === sections[0];
+    if (moveFocus) {
+      window.scrollTo(0, 0);
+      current.querySelector('h2').focus({ preventScroll: true });
+    }
+  }
+
+  renderStep(false);
+  window.addEventListener('hashchange', () => renderStep(true));
+}
+
+const requestedTopic = new URLSearchParams(window.location.search).get('topic');
+if (resultPanel && requestedTopic === 'bathing') {
+  showBathingGuide();
+} else if (resultPanel) {
   const topic = Object.prototype.hasOwnProperty.call(scenarios, requestedTopic) ? requestedTopic : 'start';
   showScenario(topic);
+  document.querySelector('#care-bathing-link').hidden = topic !== 'care';
   document.title = `${scenarios[topic].title}｜中西區照顧導航`;
 }

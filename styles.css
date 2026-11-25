@@ -207,6 +207,28 @@ footer p { margin: 3px 0; font-size: 13px; }
 .result-page-actions { display: flex; justify-content: center; margin-top: 24px; }
 .result-page-actions .button { min-width: 230px; }
 
+.scenario.bathing-entry { --tone: #913952; --soft: #f9edf1; grid-template-columns: 58px minmax(0, 1fr); color: var(--ink); text-decoration: none; }
+.result-page-main [hidden] { display: none !important; }
+.care-bathing-link { display: inline-block; margin-top: 12px; padding: 10px 0; color: var(--green-dark); font-weight: 800; }
+.bathing-guide { max-width: 760px; margin: 0 auto; }
+.bathing-guide h1 { max-width: none; margin: 5px 0 22px; font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.2; }
+.bathing-card { padding: clamp(18px, 4vw, 34px); border: 1px solid #bfd8d0; border-radius: 22px; background: #fff; box-shadow: 0 10px 28px rgba(23, 51, 58, .07); }
+.bathing-card h2 { margin: 0 0 10px; font-size: clamp(1.375rem, 3.5vw, 1.9rem); line-height: 1.35; }
+.bathing-card h2:focus { outline: none; }
+.bathing-card p { margin: 0 0 16px; font-size: 1rem; line-height: 1.7; color: var(--muted); }
+.bathing-card .bathing-label { margin-bottom: 8px; color: var(--green-dark); font-weight: 800; }
+.bathing-options { display: grid; gap: 10px; margin-top: 18px; }
+.bathing-options a, .bathing-action { display: flex; min-height: 52px; align-items: center; padding: 10px 16px; border: 1px solid #a9cac0; border-radius: 12px; background: #f1f8f5; color: var(--green-dark); font-size: 1.0625rem; font-weight: 800; line-height: 1.45; text-decoration: none; }
+.bathing-options a:hover { border-color: var(--green); background: #e3f1eb; }
+.bathing-card .bathing-script { padding: 13px 15px; border-left: 4px solid #6c9d8c; border-radius: 6px 12px 12px 6px; color: var(--ink); background: #f3f7f5; }
+.bathing-script strong { display: block; margin-bottom: 4px; }
+.bathing-action { display: inline-flex; justify-content: center; border-color: #9a253f; background: #9a253f; color: #fff; }
+.bathing-action:hover { background: #7b1c32; }
+.bathing-help, .bathing-restart { display: inline-flex; align-items: center; min-height: 44px; color: var(--green-dark); font-weight: 800; text-underline-offset: 4px; }
+.bathing-restart { margin-top: 7px; }
+.bathing-entry:focus-visible, .bathing-guide a:focus-visible { outline: 3px solid var(--green-dark); outline-offset: 3px; }
+@media (max-width: 520px) { .bathing-action { display: flex; width: 100%; } }
+
 @media (max-width: 980px) {
   nav { display: none; }
   .hero { grid-template-columns: 1fr; }

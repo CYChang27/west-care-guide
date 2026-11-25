@@ -13,7 +13,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=20261118-2" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=20261118-2" />
   <link rel="manifest" href="site.webmanifest?v=20261118-2" />
-  <link rel="stylesheet" href="styles.css?v=20261119-1" />
+  <link rel="stylesheet" href="styles.css?v=20261125-1" />
 </head>
 <body class="result-page-body">
   <a class="skip-link" href="#main">跳到查詢結果</a>
@@ -30,7 +30,7 @@
 
   <main id="main" class="result-page-main">
     <a class="result-back" href="index.html#guide"><span aria-hidden="true">←</span> 返回情境選擇</a>
-    <section class="result-page-intro">
+    <section class="result-page-intro" id="result-intro">
       <p class="eyebrow">情境查詢結果</p>
       <h1>先看現在可以怎麼做</h1>
       <p>以下整理建議步驟與可直接聯絡的單位。</p>
@@ -43,11 +43,48 @@
         <h3 id="result-title"></h3>
         <p id="result-description"></p>
         <ol id="result-steps"></ol>
+        <a class="care-bathing-link" id="care-bathing-link" href="result.html?topic=bathing" hidden>長輩洗澡需要人幫？查看適合的聯絡方式</a>
       </div>
       <div>
         <p class="result-kicker">可以直接聯絡</p>
         <div id="result-resources" class="result-resources"></div>
       </div>
+    </section>
+
+    <section class="bathing-guide" id="bathing-guide" aria-labelledby="bathing-title" hidden>
+      <p class="eyebrow">日常照顧</p>
+      <h1 id="bathing-title">長輩洗澡需要人幫</h1>
+      <div class="bathing-card" data-bathing-state="choose">
+        <h2 tabindex="-1">長輩目前有使用長照服務嗎？</h2>
+        <p>居服員到家、日間照顧和長照交通接送，都可能是目前使用的長照服務。</p>
+        <div class="bathing-options">
+          <a href="#has-care">有，目前有使用</a>
+          <a href="#no-care">沒有，目前沒使用</a>
+          <a href="#not-sure">不確定，或不知道怎麼聯絡個管員</a>
+        </div>
+      </div>
+      <div class="bathing-card" data-bathing-state="has-care" hidden>
+        <p class="bathing-label">目前有使用長照</p>
+        <h2 tabindex="-1">請原長照個管員評估能否調整服務</h2>
+        <p>先查看手邊的長照服務資料，找原本協助安排服務的個管員。告訴對方，除了現在已有的協助，洗澡也開始需要人幫忙。</p>
+        <p class="bathing-script"><strong>聯絡時可以這樣說</strong>「長輩目前有使用長照服務，最近洗澡需要人幫忙。能不能請您評估，現有服務是否可以調整？」</p>
+        <a class="bathing-help" href="#not-sure">找不到個管員的聯絡方式</a>
+      </div>
+      <div class="bathing-card" data-bathing-state="no-care" hidden>
+        <p class="bathing-label">目前沒有使用長照</p>
+        <h2 tabindex="-1">撥打1966，洽詢長照評估</h2>
+        <p>先說明洗澡需要哪一種協助。是否適用居家服務，以及可以怎麼安排，由長照管理中心評估。</p>
+        <p class="bathing-script"><strong>聯絡時可以這樣說</strong>「長輩住在臺中市中區或西區，目前沒有使用長照，最近洗澡需要人幫忙，想詢問怎麼申請評估。」</p>
+        <a class="bathing-action" href="tel:1966">撥打長照專線 1966</a>
+      </div>
+      <div class="bathing-card" data-bathing-state="not-sure" hidden>
+        <p class="bathing-label">不確定或找不到聯絡人</p>
+        <h2 tabindex="-1">打給中西區衛生所，詢問該聯絡誰</h2>
+        <p>可以說明現在是否有人到家中服務，或帶著手邊的服務資料一起詢問。若你只知道服務單位名稱，也可以先說出名稱。</p>
+        <p class="bathing-script"><strong>聯絡時可以這樣說</strong>「長輩洗澡需要人幫忙。我不確定家裡目前用的是不是長照服務，想請問接下來可以聯絡誰？」</p>
+        <a class="bathing-action" href="tel:0422223811">撥打衛生所 04-2222-3811</a>
+      </div>
+      <a class="bathing-restart" id="bathing-restart" href="#choose" hidden>重新回答這個問題</a>
     </section>
 
     <div class="result-page-actions">
@@ -60,6 +97,6 @@
     <div><p>內容最後核對：115年11月</p><p>服務資格與名冊可能調整，申請時請以主管機關最新公告為準。</p></div>
   </footer>
   <script src="local-resources.js?v=20261119-1"></script>
-  <script src="app.js?v=20261119-1"></script>
+  <script src="app.js?v=20261125-1"></script>
 </body>
 </html>
