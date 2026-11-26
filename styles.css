@@ -321,3 +321,12 @@ html[data-reading-size]:not([data-reading-size="standard"]) .quick-link > b { di
   .emergency-row { grid-template-columns: minmax(0,1fr); }
   .reading-tools { justify-content: flex-start; }
 }
+
+
+/* Resource roster update: readable supplemental information without lengthening every card. */
+.resource-details { margin-top: 1rem; border-top: 1px solid #dce6e7; padding-top: .65rem; font-size: .95rem; }
+.resource-details summary { cursor: pointer; color: #235c75; font-weight: 700; padding: .35rem 0; }
+.resource-details p, .contact-note { font-size: .95rem; line-height: 1.65; overflow-wrap: anywhere; }
+.vaccine-tag { background: #e4edff; color: #265fa0; }
+.resource-card .action-row { flex-wrap: wrap; }
+.resource-card .action-link { white-space: normal; overflow-wrap: anywhere; }

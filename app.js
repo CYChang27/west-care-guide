@@ -63,7 +63,13 @@ const baseResources = [
 
 ];
 
-const resources = [...baseResources, ...localResources];
+const resources = [
+  ...baseResources.map(r => ({...r, ...(resourceBaseUpdates[r.id] || {})})),
+  ...localResources
+];
+const datasetNote = document.querySelector('#dataset-note');
+if (datasetNote) datasetNote.textContent = `收錄 ${localResources.length} 筆名冊與服務資料，另有 ${baseResources.length} 項官方與常用入口。資料更新：${resourceDataset.label}。`;
+
 
 const scenarios = {
   start: {
@@ -118,26 +124,32 @@ let activeDistrict = 'all';
 let visibleCount = 12;
 const pageSize = 12;
 
+function escapeHtml(value) {
+  return String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
 function googleMapsDirectionsUrl(resource) {
   const target = resource.mapAddress || resource.address;
-  const params = `api=1&destination=${encodeURIComponent(target)}`;
-  return `https://www.google.com/maps/dir/?${params}${resource.mapAddress ? '' : '&travelmode=driving&dir_action=navigate'}`;
+  return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(target)}`;
 }
-
 function resourceAddress(r) {
-  if (!r.address) return '';
-  const url = googleMapsDirectionsUrl(r);
-  return `<a class="resource-address" href="${url}" target="_blank" rel="noopener noreferrer" aria-label="使用 Google 地圖導航到 ${r.title}">
-    <span class="resource-address-pin" aria-hidden="true">⌖</span>
-    <span class="resource-address-text">${r.address}</span>
-    <span class="resource-address-action">Google 導航</span>
-  </a>`;
+  if (!r.address) {
+    if (!r.nameOnly) return '';
+    const area = ['中區','西區'].includes(r.district) ? r.district : '';
+    const query = `臺中市${area} ${r.title}`;
+    return `<a class="resource-address" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}" target="_blank" rel="noopener noreferrer"><span class="resource-address-pin" aria-hidden="true">⌕</span><span class="resource-address-text">依名稱搜尋地圖</span></a><p class="contact-note">名冊未附完整電話與地址，請核對地圖上的單位資訊。</p>`;
+  }
+  return `<a class="resource-address" href="${googleMapsDirectionsUrl(r)}" target="_blank" rel="noopener noreferrer" aria-label="使用 Google 地圖導航到 ${escapeHtml(r.title)}"><span class="resource-address-pin" aria-hidden="true">⌖</span><span class="resource-address-text">${escapeHtml(r.address)}</span><span class="resource-address-action">Google 導航</span></a>`;
 }
-
 function resourceActions(r) {
-  const phone = r.phone ? `<a class="action-link phone" href="${r.phoneHref}">撥打 ${r.phone}</a>` : '';
-  const link = r.link ? `<a class="action-link web" href="${r.link}" target="_blank" rel="noopener">${r.action || '查看官方資訊'} →</a>` : '';
-  return `<span class="action-row">${phone}${link}</span>`;
+  const phone = r.phone && r.phoneHref ? `<a class="action-link phone" href="${escapeHtml(r.phoneHref)}">撥打 ${escapeHtml(r.phone)}</a>` : '';
+  const link = r.link ? `<a class="action-link web" href="${escapeHtml(r.link)}" target="_blank" rel="noopener noreferrer">${escapeHtml(r.action || '查看官方資訊')}</a>` : '';
+  const other = (r.additionalPhones || []).map(p => `<a class="action-link phone" href="${escapeHtml(p.phoneHref)}">${escapeHtml(p.label)} ${escapeHtml(p.phone)}</a>`).join('');
+  return `<span class="action-row">${phone}${other}${link}</span>`;
+}
+function resourceDetails(r) {
+  const detail = [r.hours && `活動時間：${r.hours}`, r.locationNote && `活動地點：${r.locationNote}`, r.serviceArea && `服務分區：${r.serviceArea}`, r.contactStatus, r.vaccineNote].filter(Boolean).map(t => `<p>${escapeHtml(t)}</p>`).join('');
+  const source = r.source ? `<p>資料來源：${escapeHtml(r.source)}</p>` : '';
+  return detail || source ? `<details class="resource-details"><summary>服務補充與資料來源</summary>${detail}${source}</details>` : '';
 }
 
 function showScenario(topic) {
@@ -156,27 +168,29 @@ function showScenario(topic) {
     return (ai === -1 ? 999 : ai) - (bi === -1 ? 999 : bi);
   }).slice(0,3);
   resultResources.innerHTML = selected.map(r => `
-    <article class="mini-resource"><strong>${r.title}</strong><span>${r.description}</span>${resourceAddress(r)}${resourceActions(r)}</article>
+    <article class="mini-resource"><strong>${escapeHtml(r.title)}</strong><span>${escapeHtml(r.description)}</span>${resourceAddress(r)}${resourceActions(r)}${resourceDetails(r)}</article>
   `).join('');
 }
 
 function renderResources() {
   const q = search.value.trim().toLowerCase();
   const filtered = resources.filter(r => {
-    const matchesFilter = activeFilter === 'all' || r.category === activeFilter;
+    const matchesFilter = activeFilter === 'all' || (r.categories || [r.category]).includes(activeFilter);
     const district = r.district || '跨區服務';
     const matchesDistrict = activeDistrict === 'all' || district === activeDistrict;
-    const haystack = `${r.title} ${r.description} ${r.category} ${district} ${r.address || ''}`.toLowerCase();
+    const haystack = `${r.title} ${r.description} ${r.category} ${district} ${r.address || ''} ${(r.aliases || []).join(' ')} ${(r.categories || []).join(' ')} ${r.serviceArea || ''} ${r.village || ''} ${r.vaccineNote || ''}`.toLowerCase();
     return matchesFilter && matchesDistrict && (!q || haystack.includes(q));
   });
+  filtered.sort((a, b) => Number(Boolean(a.nameOnly)) - Number(Boolean(b.nameOnly)));
   const visible = filtered.slice(0, visibleCount);
   grid.innerHTML = visible.map(r => `
     <article class="resource-card ${r.id.startsWith('local-') ? '' : 'is-official'}" data-category="${r.category}">
-      <div class="card-tags"><span class="tag">${r.category}</span><span class="district-tag">${r.district || '跨區服務'}</span></div>
-      <h3>${r.title}</h3>
-      <p>${r.description}</p>
+      <div class="card-tags"><span class="tag">${escapeHtml(r.category)}</span>${(r.categories || []).includes('疫苗服務') ? '<span class="tag vaccine-tag">疫苗服務</span>' : ''}<span class="district-tag">${escapeHtml(r.district || '跨區服務')}</span></div>
+      <h3>${escapeHtml(r.title)}</h3>
+      <p>${escapeHtml(r.description)}</p>
       ${resourceAddress(r)}
       <div class="resource-meta">${resourceActions(r)}</div>
+      ${resourceDetails(r)}
     </article>
   `).join('');
   noResults.hidden = filtered.length !== 0;
@@ -246,3 +260,4 @@ if (resultPanel && requestedTopic === 'bathing') {
   document.querySelector('#care-bathing-link').hidden = topic !== 'care';
   document.title = `${scenarios[topic].title}｜中西區照顧導航`;
 }
+

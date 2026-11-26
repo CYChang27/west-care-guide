@@ -13,7 +13,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=20261118-2" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=20261118-2" />
   <link rel="manifest" href="site.webmanifest?v=20261118-2" />
-  <link rel="stylesheet" href="styles.css?v=20261125-2" />
+  <link rel="stylesheet" href="styles.css?v=20261126-resources" />
   <script src="reading.js?v=20261125-2" defer></script>
 </head>
 <body>
@@ -145,6 +145,7 @@
         <button class="district-filter" data-district="中區">中區</button>
         <button class="district-filter" data-district="西區">西區</button>
         <button class="district-filter" data-district="跨區服務">跨區服務</button>
+        <button class="district-filter" data-district="所在地待確認">所在地待確認</button>
       </div>
       <div class="filter-row" aria-label="資源分類">
         <button class="filter active" data-filter="all">全部</button>
@@ -163,9 +164,15 @@
         <button class="filter" data-filter="高齡藥局">高齡藥局</button>
         <button class="filter" data-filter="復能服務">復能服務</button>
         <button class="filter" data-filter="醫療院所">醫療院所</button>
+        <button class="filter" data-filter="疫苗服務">疫苗服務</button>
+        <button class="filter" data-filter="輔具資源">輔具資源</button>
+        <button class="filter" data-filter="交通接送">交通接送</button>
+        <button class="filter" data-filter="公部門">公部門</button>
+        <button class="filter" data-filter="教育學習">教育學習</button>
         <button class="filter" data-filter="社區支持">社區支持</button>
       </div>
-      <p class="resource-note">收錄151筆中區、西區在地資源與12個官方服務入口。聯絡前請確認最新服務時間與資格。</p>
+      <p class="resource-note" id="dataset-note">收錄592筆名冊與服務資料，另有12項官方與常用入口。資料更新：115年11月25日。</p>
+      <p class="resource-note">同一院所的診療與疫苗資訊合併顯示；所在地與服務範圍請分別確認。電話、地址尚未提供者標示為名冊資料。</p>
       <div class="resource-grid" id="resource-grid"></div>
       <div class="resource-footer"><p id="resource-count" aria-live="polite"></p><button id="load-more" class="load-more" type="button">顯示更多資源</button></div>
       <p id="no-results" class="no-results" hidden>找不到符合的資源。可改用其他關鍵字，或直接洽中西區衛生所。</p>
@@ -183,9 +190,10 @@
 
   <footer>
     <div><strong>中西區照顧導航</strong><p>第17屆金所獎計畫互動網站試作版</p></div>
-    <div><p>內容最後核對：115年11月</p><p>服務資格與名冊可能調整，申請時請以主管機關最新公告為準。</p></div>
+    <div><p>資源名冊更新：115年11月25日</p><p>服務資格與名冊可能調整，申請時請以主管機關最新公告為準。</p></div>
   </footer>
-  <script src="local-resources.js?v=20261125-2"></script>
-  <script src="app.js?v=20261125-2"></script>
+  <script src="local-resources.js?v=20261126-resources"></script>
+  <script src="app.js?v=20261126-resources"></script>
 </body>
 </html>
+
