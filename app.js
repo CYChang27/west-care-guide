@@ -71,43 +71,6 @@ const datasetNote = document.querySelector('#dataset-note');
 if (datasetNote) datasetNote.textContent = `收錄 ${localResources.length} 筆名冊與服務資料，另有 ${baseResources.length} 項官方與常用入口。資料更新：${resourceDataset.label}。`;
 
 
-const scenarios = {
-  start: {
-    title: "先把最困難的一件事說清楚，再選服務。",
-    description: "當需求同時包含健康、照顧與家庭安排時，不必自己逐一查找單位。",
-    steps: ["寫下目前最擔心的情況，以及希望先改善的一件事。", "聯絡中西區衛生所或1966，說明長者狀況、照顧安排與既有服務。", "確認下一步要聯絡誰、需要準備什麼資料。"]
-  },
-  care: {
-    title: "先確認需要哪一類日常協助。",
-    description: "長照服務可依評估結果提供居家、日照、交通、專業、輔具與其他生活支持。",
-    steps: ["列出一天中最需要幫忙的時段與工作。", "撥打1966提出申請，或請衛生所協助說明。", "接受到府評估後，與個案管理員討論服務組合。"]
-  },
-  rest: {
-    title: "照顧者的需要，也應列入照顧安排。",
-    description: "可同時詢問長照喘息與家庭照顧者支持，不必等到無法負荷才求助。",
-    steps: ["說明最近無法休息、無人替代或情緒壓力的具體情況。", "詢問1966喘息服務資格與可用額度。", "聯絡家庭照顧者支持單位，討論諮詢、技巧或情緒支持。"]
-  },
-  safety: {
-    title: "先處理立即風險，再安排長期改善。",
-    description: "跌倒、走失與居家危險需要分成緊急處理及後續環境改善。",
-    steps: ["有立即危險時先撥119或110。", "記錄曾發生的時間、地點與當時狀況。", "向1966詢問輔具、居家無障礙或相關專業服務。"]
-  },
-  migrant: {
-    title: "依問題選通譯、照護學習或權益諮詢。",
-    description: "外籍看護遇到語言、照護技巧或工作生活問題時，可直接使用官方多國語資源。",
-    steps: ["語言溝通或工作生活問題可先撥1955。", "照護技巧可使用勞動力發展署多國語教材。", "如長者照顧安排需調整，家屬仍應聯絡1966或衛生所討論服務。"]
-  },
-  welfare: {
-    title: "先確認最急的生活困難，再找到適合的福利窗口。",
-    description: "經濟、物資、家庭、新住民或老人福利需求，可從官方查詢及在地服務中心開始。",
-    steps: ["不確定符合哪項福利時，先使用臺中市社福便利站依身分與需求查詢。", "遇到急難生活、家庭照顧或經濟困難，可聯絡西區家庭福利服務中心或社會局。", "需要食物、物資或新住民支持時，選擇鄰近單位並先電話確認服務方式。"]
-  },
-  health: {
-    title: "新的健康變化，需要被醫療端知道。",
-    description: "情緒、認知、行動、用藥或功能明顯改變時，請記錄實際情況並尋求評估。",
-    steps: ["記下何時開始、發生頻率及對生活造成的影響。", "非緊急狀況可聯絡原就醫院所或衛生所討論。", "若影響日常照顧，同時向1966詢問可用生活支持。"]
-  }
-};
 
 const resultTitle = document.querySelector('#result-title');
 const resultDescription = document.querySelector('#result-description');
@@ -152,24 +115,62 @@ function resourceDetails(r) {
   return detail || source ? `<details class="resource-details"><summary>服務補充與資料來源</summary>${detail}${source}</details>` : '';
 }
 
+function catalogUrl(category, district = 'all') {
+  const params = new URLSearchParams({category});
+  if (district !== 'all') params.set('district', district);
+  return `index.html?${params.toString()}#resources`;
+}
+
+function getScenarioResources(topic, district = 'all') {
+  const item = scenarios[topic];
+  const preferred = item.resourceIds || (topic === 'health' ? ['health-center', 'local-146', 'local-147'] : []);
+  return resources.filter(r => {
+    const match = item.resourceIds ? item.resourceIds.includes(r.id) : item.catalog ? (r.categories || [r.category]).includes(item.catalog) : r.topics.includes(topic);
+    return match && (!item.locationChoice || district === 'all' || r.district === district);
+  }).sort((a,b) => {
+    if (topic === 'health') {
+      const names = ['臺中市中西區衛生所','衛生福利部臺中醫院','澄清綜合醫院平等院區'];
+      return (names.indexOf(a.title) < 0 ? 999 : names.indexOf(a.title)) - (names.indexOf(b.title) < 0 ? 999 : names.indexOf(b.title));
+    }
+    if (item.resourceIds) return preferred.indexOf(a.id) - preferred.indexOf(b.id);
+    return Number(Boolean(a.nameOnly)) - Number(Boolean(b.nameOnly)) || (topic === 'community' ? Number(Boolean(b.hours)) - Number(Boolean(a.hours)) : 0);
+  });
+}
+
 function showScenario(topic) {
   const item = scenarios[topic];
   resultPanel.dataset.topic = topic;
   resultTitle.textContent = item.title;
   resultDescription.textContent = item.description;
-  resultSteps.innerHTML = item.steps.map(step => `<li>${step}</li>`).join('');
-  const preferredTitles = {
-    health: ["臺中市中西區衛生所", "衛生福利部臺中醫院", "澄清綜合醫院平等院區"]
-  };
-  const preferred = preferredTitles[topic] || [];
-  const selected = resources.filter(r => r.topics.includes(topic)).sort((a, b) => {
-    const ai = preferred.indexOf(a.title);
-    const bi = preferred.indexOf(b.title);
-    return (ai === -1 ? 999 : ai) - (bi === -1 ? 999 : bi);
-  }).slice(0,3);
-  resultResources.innerHTML = selected.map(r => `
-    <article class="mini-resource"><strong>${escapeHtml(r.title)}</strong><span>${escapeHtml(r.description)}</span>${resourceAddress(r)}${resourceActions(r)}${resourceDetails(r)}</article>
-  `).join('');
+  resultSteps.innerHTML = item.steps.map(step => `<li>${escapeHtml(step)}</li>`).join('');
+  const script = document.querySelector('#result-script');
+  script.hidden = !item.script;
+  script.textContent = item.script ? `聯絡時可以這樣說：「${item.script}」` : '';
+  const location = document.querySelector('#scenario-location');
+  const locationWrap = document.querySelector('#scenario-location-wrap');
+  locationWrap.hidden = !item.locationChoice;
+  const note = document.querySelector('#result-resource-note');
+  note.textContent = item.resourceNote || '';
+  note.hidden = !item.resourceNote;
+  const related = document.querySelector('#result-related');
+  related.innerHTML = (item.sourceLink ? `<a class="action-link web" href="${escapeHtml(item.sourceLink.href)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.sourceLink.label)}</a>` : '') +
+    (item.secondaryCatalog ? `<a class="action-link web" href="${catalogUrl(item.secondaryCatalog.category)}">${escapeHtml(item.secondaryCatalog.label)}</a>` : '');
+  function renderScenarioChoices() {
+    const district = item.locationChoice ? location.value : 'all';
+    const choices = getScenarioResources(topic, district);
+    resultResources.innerHTML = choices.slice(0,3).map(r => `
+      <article class="mini-resource"><strong>${escapeHtml(r.title)}</strong><span>${escapeHtml(r.description)}</span>${r.hours ? `<p class="scenario-hours">活動時間：${escapeHtml(r.hours)}</p>` : ''}${resourceAddress(r)}${resourceActions(r)}${resourceDetails(r)}</article>
+    `).join('');
+    document.querySelector('#result-resource-count').textContent = choices.length ? `找到 ${choices.length} 筆相關資源，先列出 ${Math.min(3, choices.length)} 筆供查詢。` : '這個地區目前沒有列入名冊的資源，可改選其他地區。';
+    const more = document.querySelector('#result-more');
+    more.hidden = !item.catalog;
+    if (item.catalog) {
+      more.href = catalogUrl(item.catalog, district);
+      more.textContent = `查看全部${choices.length}筆${item.catalog}`;
+    }
+  }
+  location.onchange = renderScenarioChoices;
+  renderScenarioChoices();
 }
 
 function renderResources() {
@@ -224,6 +225,15 @@ if (search && loadMore && grid) {
     visibleCount += pageSize;
     renderResources();
   });
+  const params = new URLSearchParams(window.location.search);
+  for (const [key, selector, field] of [['category','.filter','filter'],['district','.district-filter','district']]) {
+    const value = params.get(key);
+    const buttons = [...document.querySelectorAll(selector)];
+    if (buttons.some(b => b.dataset[field] === value)) {
+      buttons.forEach(b => b.classList.toggle('active', b.dataset[field] === value));
+      if (key === 'category') activeFilter = value; else activeDistrict = value;
+    }
+  }
   renderResources();
 }
 

@@ -330,3 +330,21 @@ html[data-reading-size]:not([data-reading-size="standard"]) .quick-link > b { di
 .vaccine-tag { background: #e4edff; color: #265fa0; }
 .resource-card .action-row { flex-wrap: wrap; }
 .resource-card .action-link { white-space: normal; overflow-wrap: anywhere; }
+
+/* New resource-backed situations: retain responsive and reading-size layouts. */
+.scenario[data-topic="vaccine"] { --tone:#337ba6; --soft:#eaf5fc; }
+.scenario[data-topic="assistive"] { --tone:#705aad; --soft:#f1edfb; }
+.scenario[data-topic="transport"] { --tone:#a55825; --soft:#fff1e7; }
+.scenario[data-topic="community"] { --tone:#35795b; --soft:#eaf7ee; }
+.scenario[data-topic="vaccine"], .scenario[data-topic="assistive"], .scenario[data-topic="transport"], .scenario[data-topic="community"] { grid-template-columns:58px minmax(0,1fr); }
+.scenario-text small { font-size:.9375rem; }
+.result-copy h2 { margin:0 0 14px; font-size:1.75rem; line-height:1.4; }
+.scenario-location { display:grid; gap:8px; font-weight:700; margin:0 0 16px; }
+.scenario-location select { max-width:100%; font:inherit; padding:12px 38px 12px 12px; border:1px solid #7e9cac; border-radius:10px; background:#fff; color:var(--ink); }
+.result-count { font-size:1rem; color:var(--muted); }
+.result-script { padding:16px; background:#edf5fb; border-left:4px solid #4988a4; border-radius:8px; line-height:1.7; }
+.scenario-hours { font-weight:700; }
+.result-more { display:inline-flex; margin-top:16px; }
+.combined-summary { font-size:1rem; line-height:1.7; padding:14px 18px; background:#edf5fb; border-radius:12px; }
+.combined-card-links { display:flex; gap:10px; flex-wrap:wrap; }
+@media(max-width:560px) { .scenario[data-topic="vaccine"],.scenario[data-topic="assistive"],.scenario[data-topic="transport"],.scenario[data-topic="community"] { grid-template-columns:44px minmax(0,1fr); } }

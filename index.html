@@ -13,7 +13,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=20261118-2" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=20261118-2" />
   <link rel="manifest" href="site.webmanifest?v=20261118-2" />
-  <link rel="stylesheet" href="styles.css?v=20261126-resources" />
+  <link rel="stylesheet" href="styles.css?v=20261126-scenarios" />
   <script src="reading.js?v=20261125-2" defer></script>
 </head>
 <body>
@@ -95,7 +95,7 @@
         <p class="eyebrow">從生活問題開始</p>
         <h2>你現在最需要哪一種協助？</h2>
         <p>點選最接近的情況，將開啟下一頁顯示建議步驟與可聯絡窗口。</p>
-        <a class="combined-entry" href="combined.html">我同時有兩件以上的困難</a>
+        <a class="combined-entry" href="combined.html">我有兩項以上需求，合併查看建議</a>
       </div>
       <div class="scenario-grid">
         <button class="scenario active" data-topic="start">
@@ -129,6 +129,22 @@
         <button class="scenario" data-topic="health">
           <span class="scenario-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 12h4l2-5 4 10 2-5h6"/><path d="M12 21C6.5 17.8 3 14.8 3 10a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 4.8-3.5 7.8-9 11Z"/></svg></span>
           <span class="scenario-text"><strong>健康狀況有變化</strong><small>就醫、用藥、功能與心理支持</small></span><b aria-hidden="true">→</b>
+        </button>
+        <button class="scenario" data-topic="vaccine">
+          <span class="scenario-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m14 3 7 7M17 6l-8 8-4 1 1-4 8-8M9 14l-6 6M11 7l6 6"/></svg></span>
+          <span class="scenario-text"><strong>想接種疫苗</strong><small>找接種院所，確認疫苗與預約</small></span>
+        </button>
+        <button class="scenario" data-topic="assistive">
+          <span class="scenario-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10" cy="4" r="2"/><path d="M10 7v7h7l3 6M10 10h6M7 10a6 6 0 1 0 9 8"/></svg></span>
+          <span class="scenario-text"><strong>需要輔具或居家改善</strong><small>輪椅、助行器、扶手與租借</small></span>
+        </button>
+        <button class="scenario" data-topic="transport">
+          <span class="scenario-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="15" rx="3"/><path d="M4 10h16M7 18v3m10-3v3M8 14h1m6 0h1"/></svg></span>
+          <span class="scenario-text"><strong>就醫或復健需要接送</strong><small>長照交通、復康巴士與陪同</small></span>
+        </button>
+        <button class="scenario" data-topic="community">
+          <span class="scenario-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="8" cy="7" r="3"/><circle cx="17" cy="8" r="2"/><path d="M2 21v-4a6 6 0 0 1 12 0v4m2-8a4 4 0 0 1 6 4v4"/></svg></span>
+          <span class="scenario-text"><strong>想找活動、共餐或課程</strong><small>查看據點、時間與參加方式</small></span>
         </button>
       </div>
 
@@ -192,8 +208,9 @@
     <div><strong>中西區照顧導航</strong><p>第17屆金所獎計畫互動網站試作版</p></div>
     <div><p>資源名冊更新：115年11月25日</p><p>服務資格與名冊可能調整，申請時請以主管機關最新公告為準。</p></div>
   </footer>
-  <script src="local-resources.js?v=20261126-resources"></script>
-  <script src="app.js?v=20261126-resources"></script>
+  <script src="local-resources.js?v=20261126-scenarios"></script>
+  <script src="scenario-data.js?v=20261126-scenarios"></script>
+  <script src="app.js?v=20261126-scenarios"></script>
 </body>
 </html>
 

@@ -13,7 +13,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=20261118-2" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=20261118-2" />
   <link rel="manifest" href="site.webmanifest?v=20261118-2" />
-  <link rel="stylesheet" href="styles.css?v=20261126-resources" />
+  <link rel="stylesheet" href="styles.css?v=20261126-scenarios" />
   <script src="reading.js?v=20261125-2" defer></script>
 </head>
 <body class="result-page-body">
@@ -41,14 +41,21 @@
       <div class="result-label">你的查詢結果</div>
       <div class="result-copy">
         <p class="result-kicker">建議的第一步</p>
-        <h3 id="result-title"></h3>
+        <h2 id="result-title"></h2>
         <p id="result-description"></p>
         <ol id="result-steps"></ol>
+        <p class="bathing-script result-script" id="result-script" hidden></p>
+        <div id="result-related" class="action-row"></div>
         <a class="care-bathing-link" id="care-bathing-link" href="result.html?topic=bathing" hidden>長輩洗澡需要人幫？查看適合的聯絡方式</a>
       </div>
       <div>
-        <p class="result-kicker">可以直接聯絡</p>
+        <p class="result-kicker">可詢問的窗口</p>
+        <label id="scenario-location-wrap" class="scenario-location" hidden>選擇方便前往的地區
+          <select id="scenario-location"><option value="all">中區與西區</option><option value="中區">中區</option><option value="西區">西區</option></select>
+        </label>
+        <p id="result-resource-note"></p><p id="result-resource-count" class="result-count" aria-live="polite"></p>
         <div id="result-resources" class="result-resources"></div>
+        <a class="action-link web result-more" id="result-more" hidden></a>
       </div>
     </section>
 
@@ -97,8 +104,9 @@
     <div><strong>中西區照顧導航</strong><p>第17屆金所獎計畫互動網站試作版</p></div>
     <div><p>資源名冊更新：115年11月25日</p><p>服務資格與名冊可能調整，申請時請以主管機關最新公告為準。</p></div>
   </footer>
-  <script src="local-resources.js?v=20261126-resources"></script>
-  <script src="app.js?v=20261126-resources"></script>
+  <script src="local-resources.js?v=20261126-scenarios"></script>
+  <script src="scenario-data.js?v=20261126-scenarios"></script>
+  <script src="app.js?v=20261126-scenarios"></script>
 </body>
 </html>
 
