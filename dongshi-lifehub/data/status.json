@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-11-27T09:44:32+08:00",
+  "generated_at": "2026-11-27T20:21:15+08:00",
   "water": {
-    "status": "ok",
+    "status": "stale",
     "last_success": "2026-11-27T09:44:34+08:00",
     "items": []
   },
